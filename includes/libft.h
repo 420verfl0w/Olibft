@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 00:24:47 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/27 00:44:48 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ extern float	ft_sqrt(float nbr);
 
 extern int		ft_isalpha(int c);
 extern int		ft_isdigit(int c);
+extern int		ft_isascii(int c);
+extern int		ft_isblank(int c);
+extern int		ft_isspace(int c);
+extern int		ft_isgraph(int c);
+extern int		ft_islower(int c);
+extern int		ft_isprint(int c);
+extern int		ft_isupper(int c);
+extern int		ft_iscntrl(int c);
+extern int		ft_isxdigit(int c);
 extern int		ft_putchar(int c);
 extern int		ft_tolower(int c);
 extern int		ft_toupper(int c);
