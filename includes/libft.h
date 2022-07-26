@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftlib.h                                            :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/26 23:32:00 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/26 23:37:15 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 //
 //////////////////////////////////
 
-extern	int	ft_atoi(const char *nstr);
+extern int	ft_atoi(const char *nstr);
+extern void	ft_swap(int *a, int *b);
 
 //////////////////////////////////
 //
@@ -27,7 +28,7 @@ extern	int	ft_atoi(const char *nstr);
 //
 //////////////////////////////////
 
-extern	float	ft_sqrt(float nbr);
+extern float	ft_sqrt(float nbr);
 
 //////////////////////////////////
 //
@@ -35,7 +36,7 @@ extern	float	ft_sqrt(float nbr);
 //
 //////////////////////////////////
 
-extern	int	ft_isalpha(int c);
-extern	int	ft_isdigit(int c);
+extern int	ft_isalpha(int c);
+extern int	ft_isdigit(int c);
 
 #endif
