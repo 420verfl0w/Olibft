@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
+/*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/26 21:31:35 by maldavid         ###   ########.fr       */
+/*   Created: 2022/07/26 21:29:04 by maldavid          #+#    #+#             */
+/*   Updated: 2022/07/26 21:44:56 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+#include <stdio.h>
+#include "libft.h"
 
-extern	int	ft_atoi(const char *nstr);
-extern	float	ft_sqrt(float nbr);
+int	main(int ac, char **av)
+{
+	if (ac < 2)
+		return (-1);
+	printf("%f\n", ft_sqrt(ft_atoi(av[1])));
+	return (0);
+}
 
-#endif
