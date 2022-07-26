@@ -6,14 +6,14 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:47:17 by stales            #+#    #+#             */
-/*   Updated: 2022/07/26 23:48:41 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/27 00:22:38 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac < 2)
 		return (1);
