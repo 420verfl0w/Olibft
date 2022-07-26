@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/26 23:23:38 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/26 23:24:57 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ extern	float	ft_sqrt(float nbr);
 //////////////////////////////////
 
 extern	int	ft_isalpha(int c);
+extern	int	ft_isdigit(int c);
 
 #endif
