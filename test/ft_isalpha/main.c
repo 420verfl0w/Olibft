@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
+/*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/26 23:16:36 by maldavid         ###   ########.fr       */
+/*   Created: 2022/07/26 23:14:47 by maldavid          #+#    #+#             */
+/*   Updated: 2022/07/26 23:17:46 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stdio.h>
+#include "libft.h"
 
-extern	int	ft_atoi(const char *nstr);
-extern	float	ft_sqrt(float nbr);
-extern	int	ft_isalpha(int c);
-
-#endif
+int	main(int ac, char **av)
+{
+	if (ac < 2)
+		return (1);
+	printf("%d\n", ft_isalpha(av[1][0]));
+	return (0);
+}
