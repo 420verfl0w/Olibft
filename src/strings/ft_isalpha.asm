@@ -2,7 +2,7 @@
 ;;
 ;; Author 	: maldavid
 ;; Date   	: 2022-07-26 22:58:32
-;; Filename	: ft_sqrt
+;; Filename	: ft_isalpha
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
