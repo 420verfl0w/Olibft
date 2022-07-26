@@ -34,15 +34,15 @@ ft_atoi:
 
 .L19:
         lea     edx, dword [rax-0x9]
-        cmp     dl, 0x4
+        cmp     dl, 0x4			; check whitespace
         jbe     .L4
-        cmp     al, 0x20
+        cmp     al, 0x20		; check space
         jne     .L18
 .L4:
         add     rdi, 0x1
 .L16:
         movzx   eax, byte [rdi]
-        test    al, al
+        test    al, al			; perform AND, set zero flag if is true
         jne     .L19
 .L12:
         xor     esi, esi
@@ -50,7 +50,7 @@ ft_atoi:
         mov     eax, esi
         ret
 .L18:
-        mov     ecx, 0x1
+        mov     ecx, 0x1		; set neg to one
         jmp     .L5
 .L7:
         add     rdi, 1
@@ -62,28 +62,27 @@ ft_atoi:
         test    al, al
         je      .L12
 .L5:
-        lea     edx, dword [rax-'+']
+        lea     edx, dword [rax-'+']	; check if + or -
         and     edx, 0xFD
         je      .L7
-        lea     edx, dword [rax- '0' ]
+        lea     edx, dword [rax- '0' ]	; check if char is digits
         cmp     dl, 9
-        ja      .L12
+        ja      .L12					; ret if not digits
         xor     edx, edx
 .L8:
-        and     eax, 0xF
-        lea     rdx, qword [rdx+rdx*4]
+        and     eax, 0xF				; take nibble of one byte of eax
+        lea     rdx, qword [rdx+rdx*4]	; mul by 10
         add     rdi, 1
-        lea     rdx, qword [rax+rdx*2]
+        lea     rdx, qword [rax+rdx*2]	; mul by 10
         movzx   eax, byte [rdi]
-        lea     esi, dword [rax-48]
+        lea     esi, dword [rax-48]		; check if number
         cmp     sil, 0x9
-        jbe     .L8
-        mov     eax, 0x80000000
+        jbe     .L8						; reloop
+        mov     eax, 0x80000000	; check overflow
         xor     esi, esi
         add     rax, rdx
-        shr     rax, 0x20
+        shr     rax, 0x20		; check overflow
         jne     .L1
         imul    ecx, edx
-        mov     esi, ecx
-        mov     eax, esi
+        mov     eax, ecx
         ret
