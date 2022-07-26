@@ -6,7 +6,7 @@
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:29:04 by maldavid          #+#    #+#             */
-/*   Updated: 2022/07/26 21:44:56 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/26 22:18:43 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ int	main(int ac, char **av)
 	printf("%f\n", ft_sqrt(ft_atoi(av[1])));
 	return (0);
 }
-
