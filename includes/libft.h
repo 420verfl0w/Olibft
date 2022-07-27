@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 02:50:21 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 03:20:53 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,56 @@
 /////////////////////////////////
 
 # include <stddef.h>
+
+/////////////////////////////////
+//
+//			DEFINES
+//
+/////////////////////////////////
+
+# define OPEN_RO 	  0
+# define OPEN_WO 	  1
+# define OPEN_RW 	  2
+# define OPEN_CREAT   0x0200
+# define OPEN_EXCL	  0x0800
+# define OPEN_TRUNC   0x0400
+# define OPEN_NOCTTY  0x8000
+# define OPEN_ASYNC   0x0040
+# define OPEN_FSYNC   0x0080
+# define OPEN_SYNC    0x0080
+# define OPEN_SHLOCK  0x0010
+# define OPEN_EXLOCK  0x0020
+# define OPEN_DIR     0x00200000
+# define OPEN_NOFLW   0x00000100
+# define OPEN_CLOEXEC 0x00400000
+
+/////////////////////////////////
+//
+//			TYPEDEFS
+//
+/////////////////////////////////
+
+typedef int	t_fd;
+
+/////////////////////////////////
+//
+//			ENUM
+//
+/////////////////////////////////
+
+enum e_file_flags
+{
+	FILE_DUPFD,
+	FILE_GETFD,
+	FILE_SETFD,
+	FILE_GETFL,
+	FILE_SETFL,
+	FILE_GETOWN,
+	FILE_SETOWN,
+	FILE_GETLK,
+	FILE_SETLK,
+	FILE_SETLKW
+};
 
 //////////////////////////////////
 //
@@ -67,5 +117,6 @@ extern int		ft_toupper(int c);
 
 extern int		ft_read(unsigned int fd, char *buf, size_t len);
 extern int		ft_write(unsigned int fd, const char *buf, size_t len);
+extern int		ft_open(const char *filename, int flags, int mode);
 
 #endif
