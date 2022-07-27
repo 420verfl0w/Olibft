@@ -1,14 +1,16 @@
 # Openlibft
 OpenLibft [C/ASM] (works on x86 only)
 
+<p align="center">
+    <img src="https://github.com/420verfl0w/Olibft/blob/main/olibft.png" alt="drawing" width="500"/>
+</p>
+
 # Project
 Here is the Openlibft mainly written in assembler in order to optimize the code and the ease for the dev !
 
 ✔️ = fully done<br>
 ❌ = not touched<br>
 🚧 = work in progress<br>
-
-![Olibft.png](olibft.png)
 
 ### Function list
 
@@ -34,6 +36,7 @@ Here is the Openlibft mainly written in assembler in order to optimize the code 
 |ft_exit			|✔️ (SCALL)|      ✔️        | [ft_exit](./src/syscalls/ft_exit.asm) |
 |ft_dup				|✔️ (SCALL)|      ✔️        | [ft_dup](./src/syscalls/ft_dup.asm) |
 |ft_dup2			|✔️ (SCALL)|      ✔️        | [ft_dup2](./src/syscalls/ft_dup2.asm) |
+|ft_mprotect		|✔️ (SCALL)|      ✔️        | [ft_mprotect](./src/syscalls/ft_mprotect.asm) |
 |ft_swap			|✔️ (UTILS)|      ✔️        | [ft_swap](./src/utils/ft_swap.asm) |
 |ft_isblank			|✔️ (UTILS)|      ✔️        | [ft_isblank](./src/strings/ft_isblank.asm) |
 |ft_isspace			|✔️ (UTILS)|      ✔️        | [ft_isspace](./src/strings/ft_isspace.asm) |
