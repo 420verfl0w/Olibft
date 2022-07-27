@@ -8,7 +8,7 @@
 
 format ELF64
 
-public ft_asb
+public ft_abs
 
 section '.text' executable
 

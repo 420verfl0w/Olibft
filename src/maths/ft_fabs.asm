@@ -8,8 +8,10 @@
 
 format ELF64
 
-public ft_fasb
+public ft_fabs
 
 section '.text' executable
 
 ft_fabs:
+	fabs
+	ret

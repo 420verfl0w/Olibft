@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 19:45:16 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/27 20:03:08 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,8 +211,13 @@ extern int			ft_dup2(unsigned int oldfd, unsigned int newfd);
 // src/sys/ft_errnotab.c
 extern const char		*g_errno_tab[103];
 
-int					*__ft_bits_get_errno_location(void);
-# define FT_ERRNO	(*__ft_bits_get_errno_location())
+# ifdef __STDC_NO_ATOMICS__
+
+static int				g_ft_errno = 0;
+# else
+
+static _Atomic int		g_ft_errno = 0;
+# endif
 
 const char			*ft_strerrno(int e);
 
