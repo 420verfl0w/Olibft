@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 12:41:18 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/27 14:05:23 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@
 # define PROT_GROWSUP		0x02000000
 /* Share changes.  */
 # define MAP_SHARED			0x1
-
+/* Map failed. */
+# define MAP_FAILED			((void *)-1)
 /* Changes are private.  */
 # define MAP_PRIVATE		0x2
 /* Mask for type of mapping.  */
