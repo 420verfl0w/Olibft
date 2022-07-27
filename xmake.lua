@@ -1,3 +1,11 @@
+----------------------------------------
+--
+-- Author	: maldavid
+-- Date		: 2022-07-27 22-19-23
+-- Filename	: xmake
+--
+----------------------------------------
+
 set_objectdir("build-int/$(os)_$(arch)")
 set_targetdir("build/$(os)_$(arch)")
 
