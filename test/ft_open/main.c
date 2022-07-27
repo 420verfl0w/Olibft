@@ -6,7 +6,7 @@
 /*   By: sam <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 03:27:32 by sam               #+#    #+#             */
-/*   Updated: 2022/07/27 03:59:07 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 04:03:27 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	main(void)
 	ft_read(fd, buf, sizeof(buf));
 	printf("Size : %zd\nData : %s", size, buf);
 	ft_close(fd);
-	return (0);
+	ft_exit(0);
 }
