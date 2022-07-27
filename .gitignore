@@ -49,6 +49,7 @@ release/openlibft.a
 *.mod*
 *.cmd
 .tmp_versions/
+.xmake/
 build/
 build-int/
 modules.order

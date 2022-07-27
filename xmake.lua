@@ -59,7 +59,6 @@ target("olibft_sys")
 target_end()
 
 target("all")
-	
 	before_build(function (target)
         print(string.format("\27[38;5;45m%s\27[0m", banner))
     end)

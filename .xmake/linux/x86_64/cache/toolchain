@@ -1,1 +1,22 @@
-{ }
+{
+    tool_target_olibft_core_linux_x86_64_as = {
+        toolchain_info = {
+            name = "fasm",
+            plat = "linux",
+            arch = "x86_64",
+            cachekey = "fasm_arch_x86_64_plat_linux"
+        },
+        toolname = "fasm",
+        program = "/nfs/homes/maldavid/.local/bin/fasm"
+    },
+    tool_platform_linux_x86_64_ar = {
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            arch = "x86_64",
+            cachekey = "gcc_arch_x86_64_plat_linux"
+        },
+        toolname = "ar",
+        program = "/usr/bin/ar"
+    }
+}

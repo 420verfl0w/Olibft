@@ -6,7 +6,6 @@
         "xmake ",
         "xmake ",
         "xmake ",
-        "xmake ",
         "xmake clean",
         "xmake ",
         "xmake -b all",
@@ -64,6 +63,7 @@
         "xmake clean",
         "xmake clean",
         "xmake -b all",
-        "xmake clean"
+        "xmake clean",
+        "xmake "
     }
 }
