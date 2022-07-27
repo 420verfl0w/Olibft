@@ -19,6 +19,25 @@ set_optimize("fastest")
 set_project("olibft")
 set_version("0.0.1")
 
+add_includedirs("includes")
+
+local banner = [[
+	 ▒█████   ██▓███  ▓█████  ███▄    █  ██▓     ██▓ ▄▄▄▄     █████▒▄▄▄█████▓
+	▒██▒  ██▒▓██░  ██▒▓█   ▀  ██ ▀█   █ ▓██▒    ▓██▒▓█████▄ ▓██   ▒ ▓  ██▒ ▓▒
+	▒██░  ██▒▓██░ ██▓▒▒███   ▓██  ▀█ ██▒▒██░    ▒██▒▒██▒ ▄██▒████ ░ ▒ ▓██░ ▒░
+	▒██   ██░▒██▄█▓▒ ▒▒▓█  ▄ ▓██▒  ▐▌██▒▒██░    ░██░▒██░█▀  ░▓█▒  ░ ░ ▓██▓ ░ 
+	░ ████▓▒░▒██▒ ░  ░░▒████▒▒██░   ▓██░░██████▒░██░░▓█  ▀█▓░▒█░      ▒██▒ ░ 
+	░ ▒░▒░▒░ ▒▓▒░ ░  ░░░ ▒░ ░░ ▒░   ▒ ▒ ░ ▒░▓  ░░▓  ░▒▓███▀▒ ▒ ░      ▒ ░░   
+	  ░ ▒ ▒░ ░▒ ░      ░ ░  ░░ ░░   ░ ▒░░ ░ ▒  ░ ▒ ░▒░▒   ░  ░          ░    
+	░ ░ ░ ▒  ░░          ░      ░   ░ ░   ░ ░    ▒ ░ ░    ░  ░ ░      ░      
+	    ░ ░              ░  ░         ░     ░  ░ ░   ░                       
+                                                      ░                  
+
+				OpenLibft Created by 42Angouleme
+				[ Version : 0.0.1 (alpha) ] 
+
+]]
+
 target("olibft_core")
 	set_prefixname("")
     set_kind("static")
@@ -40,6 +59,11 @@ target("olibft_sys")
 target_end()
 
 target("all")
+	
+	before_build(function (target)
+        print(string.format("\27[38;5;45m%s\27[0m", banner))
+    end)
+
 	set_default(false)
 	set_kind("phony")
 	add_deps("olibft_core")
