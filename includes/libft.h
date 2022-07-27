@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 19:41:44 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:45:16 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,12 +208,13 @@ extern int			ft_dup2(unsigned int oldfd, unsigned int newfd);
 //
 /////////////////////////////////
 
+// src/sys/ft_errnotab.c
+extern const char		*g_errno_tab[103];
+
 int					*__ft_bits_get_errno_location(void);
 # define FT_ERRNO	(*__ft_bits_get_errno_location())
 
 const char			*ft_strerrno(int e);
-// src/sys/ft_errnotab.c
-extern const char	*g_errno_tab[103];
 
 # define FT_EPERM		0x1
 # define FT_ENOENT		0x2
