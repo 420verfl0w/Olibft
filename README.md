@@ -1,4 +1,2 @@
-# Olibft
-OpenLibft [C/ASM]
-
-Function list in Markdown
+# Openlibft
+OpenLibft [C/ASM] (works on x86 only)

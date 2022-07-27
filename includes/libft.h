@@ -6,12 +6,20 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 00:44:48 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/27 02:40:40 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+/////////////////////////////////
+//
+//			INCLUDES
+//
+/////////////////////////////////
+
+#include <stddef.h>
 
 //////////////////////////////////
 //
@@ -50,5 +58,13 @@ extern int		ft_isxdigit(int c);
 extern int		ft_putchar(int c);
 extern int		ft_tolower(int c);
 extern int		ft_toupper(int c);
+
+/////////////////////////////////
+//
+//			SYSCALLS
+//
+/////////////////////////////////
+
+extern int		ft_write(unsigned int fd, const char *buf, size_t len);
 
 #endif
