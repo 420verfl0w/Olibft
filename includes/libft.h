@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 04:21:11 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 12:41:18 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,40 @@
 # define SEEK_DATA    3
 # define SEEK_HOLE    4
 # define SEEK_MAX	  4
+
+/*---===MMAP_DEF===---*/
+
+/* Page can be read.  */
+# define PROT_READ	  		0x1
+/* Page can be written.  */
+# define PROT_WRITE   		0x2
+/* Page can be executed.  */
+# define PROT_EXEC    		0x4
+/* Page can not be accessed.  */
+# define PROT_NONE    		0x0
+/* Extend change to start of
+ * growsdown vma (mprotect only).  */
+# define PROT_GROWSDOWN		0x01000000
+/* Extend change to start of
+ * growsup vma (mprotect only).  */
+# define PROT_GROWSUP		0x02000000
+/* Share changes.  */
+# define MAP_SHARED			0x1
+
+/* Changes are private.  */
+# define MAP_PRIVATE		0x2
+/* Mask for type of mapping.  */
+# define MAP_TYPE			0xF
+/* Interpret addr exactly.  */
+# define MAP_FIXED			0x10
+/* Don't use a file.  */
+# define MAP_ANONYMOUS		0x20
+/* Sync memory asynchronously.  */
+# define MS_ASYNC			0x1
+/* Synchronous memory sync.  */
+# define MS_SYNC			0x4
+/* Invalidate the caches.  */
+# define MS_INVALIDATE		0x2
 
 /////////////////////////////////
 //
@@ -129,7 +163,9 @@ extern int		ft_toupper(int c);
 //
 /////////////////////////////////
 
+extern void		*ft_mmap(void *addr, size_t length, int prot, int flags);
 extern off_t	ft_lseek(unsigned int fd, off_t offset, unsigned int whence);
+extern int		ft_munmap(void *addr, size_t length);
 extern int		ft_read(unsigned int fd, char *buf, size_t len);
 extern int		ft_write(unsigned int fd, const char *buf, size_t len);
 extern int		ft_open(const char *filename, int flags, int mode);
