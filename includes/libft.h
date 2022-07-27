@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 04:09:35 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 04:21:11 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@
 /////////////////////////////////
 
 typedef int	t_fd;
+typedef int	t_pid;
 
 /////////////////////////////////
 //
@@ -135,5 +136,6 @@ extern int		ft_open(const char *filename, int flags, int mode);
 extern int		ft_close(unsigned int fd);
 extern int		ft_exit(int code);
 extern int		ft_chdir(const char *path);
+extern t_pid	ft_fork(void);
 
 #endif
