@@ -30,6 +30,8 @@ Here is the Openlibft mainly written in assembler in order to optimize the code 
 |ft_munmap			|✔️ (SCALL)|      ✔️        | [ft_munmap](./src/syscalls/ft_munmap.asm) |
 |ft_close			|✔️ (SCALL)|      ✔️        | [ft_close](./src/syscalls/ft_close.asm) |
 |ft_exit			|✔️ (SCALL)|      ✔️        | [ft_exit](./src/syscalls/ft_exit.asm) |
+|ft_dup				|✔️ (SCALL)|      ✔️        | [ft_dup](./src/syscalls/ft_dup.asm) |
+|ft_dup2			|✔️ (SCALL)|      ✔️        | [ft_dup2](./src/syscalls/ft_dup2.asm) |
 |ft_swap			|✔️ (UTILS)|      ✔️        | [ft_swap](./src/utils/ft_swap.asm) |
 |ft_isblank			|✔️ (UTILS)|      ✔️        | [ft_isblank](./src/strings/ft_isblank.asm) |
 |ft_isspace			|✔️ (UTILS)|      ✔️        | [ft_isspace](./src/strings/ft_isspace.asm) |
