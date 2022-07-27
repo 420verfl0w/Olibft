@@ -2,6 +2,7 @@ release/openlibft.a
 # Prerequisites
 *.d
 *.swp
+*.swx
 
 # Object files
 *.o

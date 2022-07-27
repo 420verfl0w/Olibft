@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 17:59:44 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:38:06 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,11 @@
 //
 /////////////////////////////////
 
-typedef int	t_fd;
-typedef int	t_pid;
+typedef double			t_f64;
+typedef unsigned int	t_u32;
+typedef float			t_f32;
+typedef int				t_fd;
+typedef int				t_pid;
 
 /////////////////////////////////
 //
@@ -148,8 +151,8 @@ enum e_s_perm_flags
 //
 //////////////////////////////////
 
-extern int		ft_atoi(const char *nstr);
-extern void		ft_swap(int *a, int *b);
+extern int			ft_atoi(const char *nstr);
+extern void			ft_swap(int *a, int *b);
 
 //////////////////////////////////
 //
@@ -157,7 +160,7 @@ extern void		ft_swap(int *a, int *b);
 //
 //////////////////////////////////
 
-extern float	ft_sqrt(float nbr);
+extern float		ft_sqrt(float nbr);
 
 //////////////////////////////////
 //
@@ -165,20 +168,20 @@ extern float	ft_sqrt(float nbr);
 //
 //////////////////////////////////
 
-extern int		ft_isalpha(int c);
-extern int		ft_isdigit(int c);
-extern int		ft_isascii(int c);
-extern int		ft_isblank(int c);
-extern int		ft_isspace(int c);
-extern int		ft_isgraph(int c);
-extern int		ft_islower(int c);
-extern int		ft_isprint(int c);
-extern int		ft_isupper(int c);
-extern int		ft_iscntrl(int c);
-extern int		ft_isxdigit(int c);
-extern int		ft_putchar(int c);
-extern int		ft_tolower(int c);
-extern int		ft_toupper(int c);
+extern int			ft_isalpha(int c);
+extern int			ft_isdigit(int c);
+extern int			ft_isascii(int c);
+extern int			ft_isblank(int c);
+extern int			ft_isspace(int c);
+extern int			ft_isgraph(int c);
+extern int			ft_islower(int c);
+extern int			ft_isprint(int c);
+extern int			ft_isupper(int c);
+extern int			ft_iscntrl(int c);
+extern int			ft_isxdigit(int c);
+extern int			ft_putchar(int c);
+extern int			ft_tolower(int c);
+extern int			ft_toupper(int c);
 
 /////////////////////////////////
 //
@@ -186,18 +189,18 @@ extern int		ft_toupper(int c);
 //
 /////////////////////////////////
 
-extern void		*ft_mmap(void *addr, size_t length, int prot, int flags);
-extern off_t	ft_lseek(unsigned int fd, off_t offset, unsigned int whence);
-extern int		ft_munmap(void *addr, size_t length);
-extern int		ft_read(unsigned int fd, char *buf, size_t len);
-extern int		ft_write(unsigned int fd, const char *buf, size_t len);
-extern int		ft_open(const char *filename, int flags, int mode);
-extern int		ft_close(unsigned int fd);
-extern int		ft_exit(int code);
-extern int		ft_chdir(const char *path);
-extern t_pid	ft_fork(void);
-extern int		ft_dup(unsigned int fd);
-extern int		ft_dup2(unsigned int oldfd, unsigned int newfd);
+extern void			*ft_mmap(void *addr, size_t length, int prot, int flags);
+extern off_t		ft_lseek(t_u32 fd, off_t offset, t_u32 whence);
+extern int			ft_munmap(void *addr, size_t length);
+extern int			ft_read(unsigned int fd, char *buf, size_t len);
+extern int			ft_write(unsigned int fd, const char *buf, size_t len);
+extern int			ft_open(const char *filename, int flags, int mode);
+extern int			ft_close(unsigned int fd);
+extern int			ft_exit(int code);
+extern int			ft_chdir(const char *path);
+extern t_pid		ft_fork(void);
+extern int			ft_dup(unsigned int fd);
+extern int			ft_dup2(unsigned int oldfd, unsigned int newfd);
 
 /////////////////////////////////
 //
@@ -205,116 +208,115 @@ extern int		ft_dup2(unsigned int oldfd, unsigned int newfd);
 //
 /////////////////////////////////
 
-int				*__ft_bits_get_errno_location(void);
+int					*__ft_bits_get_errno_location(void);
 # define FT_ERRNO (*__ft_bits_get_errno_location())
 
-const char		*ft_strerrno(int e);
-
-# define FT_EPERM		0x1	/* Operation not permitted */
-# define FT_ENOENT		0x2	/* No such file or directory */
-# define FT_ESRCH		0x3	/* No such process */
-# define FT_EINTR		0x4	/* Interrupted system call */
-# define FT_EIO			0x5	/* Input/output error */
-# define FT_ENXIO		0x6	/* No such device or address */
-# define FT_E2BIG		0x7	/* Argument list too long */
-# define FT_ENOEXEC		0x8	/* Exec format error */
-# define FT_EBADF		0x9	/* Bad file descriptor */
-# define FT_ECHILD		0xa	/* No child processes */
-# define FT_EDEADLK		0xb	/* Resource deadlock avoided */
-# define FT_ENOMEM		0xc	/* Cannot allocate memory */
-# define FT_EACCES		0xd	/* Permission denied */
-# define FT_EFAULT		0xe	/* Bad address */
-# define FT_ENOTBLK		0xf	/* Block device required */
-# define FT_EBUSY		0x10	/* Device or resource busy */
-# define FT_EEXIST		0x11	/* File exists */
-# define FT_EXDEV		0x12	/* Invalid cross-device link */
-# define FT_ENODEV		0x13	/* No such device */
-# define FT_ENOTDIR		0x14	/* Not a directory */
-# define FT_EISDIR		0x15	/* Is a directory */
-# define FT_EINVAL		0x16	/* Invalid argument */
-# define FT_EMFILE		0x18	/* Too many open files */
-# define FT_ENFILE		0x17	/* Too many open files in system */
-# define FT_ENOTTY		0x19	/* Inappropriate ioctl for device */
-# define FT_ETXTBSY		0x1a	/* Text file busy */
-# define FT_EFBIG		0x1b	/* File too large */
-# define FT_ENOSPC		0x1c	/* No space left on device */
-# define FT_ESPIPE		0x1d	/* Illegal seek */
-# define FT_EROFS		0x1e	/* Read-only file system */
-# define FT_EMLINK		0x1f	/* Too many links */
-# define FT_EPIPE		0x20	/* Broken pipe */
-# define FT_EDOM		0x21	/* Numerical argument out of domain */
-# define FT_ERANGE		0x22	/* Numerical result out of range */
-# define FT_EAGAIN		0x23	/* Resource temporarily unavailable */
-# define FT_EINPROGRESS		0x24	/* Operation now in progress */
-# define FT_EALREADY		0x25	/* Operation already in progress */
-# define FT_ENOTSOCK		0x26	/* Socket operation on non-socket */
-# define FT_EMSGSIZE		0x28	/* Message too long */
-# define FT_EPROTOTYPE		0x29	/* Protocol wrong type for socket */
-# define FT_ENOPROTOOPT		0x2a	/* Protocol not available */
-# define FT_EPROTONOSUPPORT		0x2b	/* Protocol not supported */
-# define FT_ESOCKTNOSUPPORT		0x2c	/* Socket type not supported */
-# define FT_EOPNOTSUPP			0x2d	/* Operation not supported */
-# define FT_EPFNOSUPPORT		0x2e	/* Protocol family not supported */
-# define FT_EAFNOSUPPORT		0x2f	/* Address family not supported by protocol */
-# define FT_EADDRINUSE			0x30	/* Address already in use */
-# define FT_EADDRNOTAVAIL		0x31	/* Cannot assign requested address */
-# define FT_ENETDOWN		0x32	/* Network is down */
-# define FT_ENETUNREACH		0x33	/* Network is unreachable */
-# define FT_ENETRESET		0x34	/* Network dropped connection on reset */
-# define FT_ECONNABORTED	0x35	/* Software caused connection abort */
-# define FT_ECONNRESET		0x36	/* Connection reset by peer */
-# define FT_ENOBUFS			0x37	/* No buffer space available */
-# define FT_EISCONN			0x38	/* Transport endpoint is already connected */
-# define FT_ENOTCONN		0x39	/* Transport endpoint is not connected */
-# define FT_EDESTADDRREQ	0x27	/* Destination address required */
-# define FT_ESHUTDOWN		0x3a	/* Cannot send after transport endpoint shutdown */
-# define FT_ETOOMANYREFS	0x3b	/* Too many references: cannot splice */
-# define FT_ETIMEDOUT		0x3c	/* Connection timed out */
-# define FT_ECONNREFUSED	0x3d	/* Connection refused */
-# define FT_ELOOP			0x3e	/* Too many levels of symbolic links */
-# define FT_ENAMETOOLONG	0x3f	/* File name too long */
-# define FT_EHOSTDOWN		0x40	/* Host is down */
-# define FT_EHOSTUNREACH	0x41	/* No route to host */
-# define FT_ENOTEMPTY		0x42	/* Directory not empty */
-# define FT_EPROCLIM		0x43	/* Too many processes */
-# define FT_EUSERS		0x44	/* Too many users */
-# define FT_EDQUOT		0x45	/* Disk quota exceeded */
-# define FT_ESTALE		0x46	/* Stale file handle */
-# define FT_EREMOTE		0x47	/* Object is remote */
-# define FT_EBADRPC		0x48	/* RPC struct is bad */
-# define FT_ERPCMISMATCH		0x49	/* RPC version wrong */
-# define FT_EPROGUNAVAIL		0x4a	/* RPC program not available */
-# define FT_EPROGMISMATCH		0x4b	/* RPC program version wrong */
-# define FT_EPROCUNAVAIL		0x4c	/* RPC bad procedure for program */
-# define FT_ENOLCK		0x4d	/* No locks available */
-# define FT_EFTYPE		0x4f	/* Inappropriate file type or format */
-# define FT_EAUTH		0x50	/* Authentication error */
-# define FT_ENEEDAUTH	0x51	/* Need authenticator */
-# define FT_ENOSYS		0x4e	/* Function not implemented */
-# define FT_ENOTSUP		0x76	/* Not supported */
-# define FT_EILSEQ		0x6a	/* Invalid or incomplete multibyte or wide character */
-# define FT_EBACKGROUND	0x64	/* Inappropriate operation for background process */
-# define FT_EDIED		0x65	/* Translator died */
-# define FT_ED			0x66	/* ? */
-# define FT_EGREGIOUS	0x67	/* You really blew it this time */
-# define FT_EIEIO		0x68	/* Computer bought the farm */
-# define FT_EGRATUITOUS	0x69	/* Gratuitous error */
-# define FT_EBADMSG		0x6b	/* Bad message */
-# define FT_EIDRM		0x6c	/* Identifier removed */
-# define FT_EMULTIHOP	0x6d	/* Multihop attempted */
-# define FT_ENODATA		0x6e	/* No data available */
-# define FT_ENOLINK		0x6f	/* Link has been severed */
-# define FT_ENOMSG		0x70	/* No message of desired type */
-# define FT_ENOSR		0x71	/* Out of streams resources */
-# define FT_ENOSTR		0x72	/* Device not a stream */
-# define FT_EOVERFLOW	0x73	/* Value too large for defined data type */
-# define FT_EPROTO		0x74	/* Protocol error */
-# define FT_ETIME		0x75	/* Timer expired */
-# define FT_ECANCELED	0x77	/* Operation canceled */
-# define FT_EOWNERDEAD	0x78	/* Owner died */
-# define FT_ENOTRECOVERABLE		0x79	/* State not recoverable */
-
+const char			*ft_strerrno(int e);
 // src/sys/ft_errnotab.c
-extern const char *g_errno_tab[103];
+extern const char	*g_errno_tab[103];
+
+# define FT_EPERM		0x1
+# define FT_ENOENT		0x2
+# define FT_ESRCH		0x3
+# define FT_EINTR		0x4
+# define FT_EIO			0x5
+# define FT_ENXIO		0x6
+# define FT_E2BIG		0x7
+# define FT_ENOEXEC		0x8
+# define FT_EBADF		0x9
+# define FT_ECHILD		0xa
+# define FT_EDEADLK		0xb
+# define FT_ENOMEM		0xc
+# define FT_EACCES		0xd
+# define FT_EFAULT		0xe
+# define FT_ENOTBLK		0xf
+# define FT_EBUSY		0x10
+# define FT_EEXIST		0x11
+# define FT_EXDEV		0x12
+# define FT_ENODEV		0x13
+# define FT_ENOTDIR		0x14
+# define FT_EISDIR		0x15
+# define FT_EINVAL		0x16
+# define FT_EMFILE		0x18
+# define FT_ENFILE		0x17
+# define FT_ENOTTY		0x19
+# define FT_ETXTBSY		0x1a
+# define FT_EFBIG		0x1b
+# define FT_ENOSPC		0x1c
+# define FT_ESPIPE		0x1d
+# define FT_EROFS		0x1e
+# define FT_EMLINK		0x1f
+# define FT_EPIPE		0x20
+# define FT_EDOM		0x21
+# define FT_ERANGE		0x22
+# define FT_EAGAIN		0x23
+# define FT_EINPROGRESS		0x24   
+# define FT_EALREADY		0x25   
+# define FT_ENOTSOCK		0x26   
+# define FT_EMSGSIZE		0x28   
+# define FT_EPROTOTYPE		0x29   
+# define FT_ENOPROTOOPT		0x2a   
+# define FT_EPROTONOSUPPORT	0x2b   
+# define FT_ESOCKTNOSUPPORT	0x2c   
+# define FT_EOPNOTSUPP		0x2d   
+# define FT_EPFNOSUPPORT	0x2e   
+# define FT_EAFNOSUPPORT	0x2f   
+# define FT_EADDRINUSE		0x30   
+# define FT_EADDRNOTAVAIL	0x31   
+# define FT_ENETDOWN		0x32   
+# define FT_ENETUNREACH		0x33   
+# define FT_ENETRESET		0x34   
+# define FT_ECONNABORTED	0x35   
+# define FT_ECONNRESET		0x36   
+# define FT_ENOBUFS			0x37   
+# define FT_EISCONN			0x38   
+# define FT_ENOTCONN		0x39   
+# define FT_EDESTADDRREQ	0x27   
+# define FT_ESHUTDOWN		0x3a   
+# define FT_ETOOMANYREFS	0x3b
+# define FT_ETIMEDOUT		0x3c
+# define FT_ECONNREFUSED	0x3d
+# define FT_ELOOP			0x3e
+# define FT_ENAMETOOLONG	0x3f
+# define FT_EHOSTDOWN		0x40
+# define FT_EHOSTUNREACH	0x41
+# define FT_ENOTEMPTY		0x42
+# define FT_EPROCLIM		0x43
+# define FT_EUSERS		0x44
+# define FT_EDQUOT		0x45
+# define FT_ESTALE		0x46
+# define FT_EREMOTE		0x47
+# define FT_EBADRPC		0x48
+# define FT_ERPCMISMATCH		0x49
+# define FT_EPROGUNAVAIL		0x4a
+# define FT_EPROGMISMATCH		0x4b
+# define FT_EPROCUNAVAIL		0x4c
+# define FT_ENOLCK		0x4d
+# define FT_EFTYPE		0x4f
+# define FT_EAUTH		0x50
+# define FT_ENEEDAUTH	0x51
+# define FT_ENOSYS		0x4e
+# define FT_ENOTSUP		0x76
+# define FT_EILSEQ		0x6a
+# define FT_EBACKGROUND	0x64
+# define FT_EDIED		0x65
+# define FT_ED			0x66
+# define FT_EGREGIOUS	0x67
+# define FT_EIEIO		0x68
+# define FT_EGRATUITOUS	0x69
+# define FT_EBADMSG		0x6b
+# define FT_EIDRM		0x6c
+# define FT_EMULTIHOP	0x6d
+# define FT_ENODATA		0x6e
+# define FT_ENOLINK		0x6f
+# define FT_ENOMSG		0x70
+# define FT_ENOSR		0x71
+# define FT_ENOSTR		0x72
+# define FT_EOVERFLOW	0x73
+# define FT_EPROTO		0x74	
+# define FT_ETIME		0x75	
+# define FT_ECANCELED	0x77	
+# define FT_EOWNERDEAD	0x78	
+# define FT_ENOTRECOVERABLE		0x79
 
 #endif
