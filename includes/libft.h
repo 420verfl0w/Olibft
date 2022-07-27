@@ -199,4 +199,150 @@ extern t_pid	ft_fork(void);
 extern int		ft_dup(unsigned int fd);
 extern int		ft_dup2(unsigned int oldfd, unsigned int newfd);
 
+/////////////////////////////////
+//
+//			ERRORS
+//
+/////////////////////////////////
+
+int				*__ft_bits_get_errno_location(void);
+# define FT_ERRNO (*__ft_bits_get_errno_location())
+
+extern char		*ft_strerror(int e);
+
+# define FT_EPERM            1
+# define FT_ENOENT           2
+# define FT_ESRCH            3
+# define FT_EINTR            4
+# define FT_EIO              5
+# define FT_ENXIO            6
+# define FT_E2BIG            7
+# define FT_ENOEXEC          8
+# define FT_EBADF            9
+# define FT_ECHILD          10
+# define FT_EAGAIN          11
+# define FT_ENOMEM          12
+# define FT_EACCES          13
+# define FT_EFAULT          14
+# define FT_ENOTBLK         15
+# define FT_EBUSY           16
+# define FT_EEXIST          17
+# define FT_EXDEV           18
+# define FT_ENODEV          19
+# define FT_ENOTDIR         20
+# define FT_EISDIR          21
+# define FT_EINVAL          22
+# define FT_ENFILE          23
+# define FT_EMFILE          24
+# define FT_ENOTTY          25
+# define FT_ETXTBSY         26
+# define FT_EFBIG           27
+# define FT_ENOSPC          28
+# define FT_ESPIPE          29
+# define FT_EROFS           30
+# define FT_EMLINK          31
+# define FT_EPIPE           32
+# define FT_EDOM            33
+# define FT_ERANGE          34
+# define FT_EDEADLK         35
+# define FT_ENAMETOOLONG    36
+# define FT_ENOLCK          37
+# define FT_ENOSYS          38
+# define FT_ENOTEMPTY       39
+# define FT_ELOOP           40
+# define FT_EWOULDBLOCK     FT_EAGAIN
+# define FT_ENOMSG          42
+# define FT_EIDRM           43
+# define FT_ECHRNG          44
+# define FT_EL2NSYNC        45
+# define FT_EL3HLT          46
+# define FT_EL3RST          47
+# define FT_ELNRNG          48
+# define FT_EUNATCH         49
+# define FT_ENOCSI          50
+# define FT_EL2HLT          51
+# define FT_EBADE           52
+# define FT_EBADR           53
+# define FT_EXFULL          54
+# define FT_ENOANO          55
+# define FT_EBADRQC         56
+# define FT_EBADSLT         57
+# define FT_EDEADLOCK       FT_EDEADLK
+# define FT_EBFONT          59
+# define FT_ENOSTR          60
+# define FT_ENODATA         61
+# define FT_ETIME           62
+# define FT_ENOSR           63
+# define FT_ENONET          64
+# define FT_ENOPKG          65
+# define FT_EREMOTE         66
+# define FT_ENOLINK         67
+# define FT_EADV            68
+# define FT_ESRMNT          69
+# define FT_ECOMM           70
+# define FT_EPROTO          71
+# define FT_EMULTIHOP       72
+# define FT_EDOTDOT         73
+# define FT_EBADMSG         74
+# define FT_EOVERFLOW       75
+# define FT_ENOTUNIQ        76
+# define FT_EBADFD          77
+# define FT_EREMCHG         78
+# define FT_ELIBACC         79
+# define FT_ELIBBAD         80
+# define FT_ELIBSCN         81
+# define FT_ELIBMAX         82
+# define FT_ELIBEXEC        83
+# define FT_EILSEQ          84
+# define FT_ERESTART        85
+# define FT_ESTRPIPE        86
+# define FT_EUSERS          87
+# define FT_ENOTSOCK        88
+# define FT_EDESTADDRREQ    89
+# define FT_EMSGSIZE        90
+# define FT_EPROTOTYPE      91
+# define FT_ENOPROTOOPT     92
+# define FT_EPROTONOSUPPORT 93
+# define FT_ESOCKTNOSUPPORT 94
+# define FT_EOPNOTSUPP      95
+# define FT_ENOTSUP         FT_EOPNOTSUPP
+# define FT_EPFNOSUPPORT    96
+# define FT_EAFNOSUPPORT    97
+# define FT_EADDRINUSE      98
+# define FT_EADDRNOTAVAIL   99
+# define FT_ENETDOWN        100
+# define FT_ENETUNREACH     101
+# define FT_ENETRESET       102
+# define FT_ECONNABORTED    103
+# define FT_ECONNRESET      104
+# define FT_ENOBUFS         105
+# define FT_EISCONN         106
+# define FT_ENOTCONN        107
+# define FT_ESHUTDOWN       108
+# define FT_ETOOMANYREFS    109
+# define FT_ETIMEDOUT       110
+# define FT_ECONNREFUSED    111
+# define FT_EHOSTDOWN       112
+# define FT_EHOSTUNREACH    113
+# define FT_EALREADY        114
+# define FT_EINPROGRESS     115
+# define FT_ESTALE          116
+# define FT_EUCLEAN         117
+# define FT_ENOTNAM         118
+# define FT_ENAVAIL         119
+# define FT_EISNAM          120
+# define FT_EREMOTEIO       121
+# define FT_EDQUOT          122
+# define FT_ENOMEDIUM       123
+# define FT_EMEDIUMTYPE     124
+# define FT_ECANCELED       125
+# define FT_ENOKEY          126
+# define FT_EKEYEXPIRED     127
+# define FT_EKEYREVOKED     128
+# define FT_EKEYREJECTED    129
+# define FT_EOWNERDEAD      130
+# define FT_ENOTRECOVERABLE 131
+# define FT_ERFKILL         132
+# define FT_EHWPOISON       133
+
 #endif
