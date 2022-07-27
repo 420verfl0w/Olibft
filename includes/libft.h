@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 15:21:36 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/27 15:42:03 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,22 @@ enum e_file_flags
 	FILE_GETLK,
 	FILE_SETLK,
 	FILE_SETLKW
+};
+
+enum e_s_perm_flags
+{
+	S_ISUID = (1 << 11),
+	S_ISGID = (1 << 10),
+	S_ISVTX = (1 << 9),
+	S_IRUSR = (1 << 8),
+	S_IWUSR = (1 << 7),
+	S_IXUSR = (1 << 6),
+	S_IRGRP = (1 << 5),
+	S_IWGRP = (1 << 4),
+	S_IXGRP = (1 << 3),
+	S_IROTH = (1 << 2),
+	S_IWOTH = (1 << 1),
+	S_IXOTH = (1 << 0)
 };
 
 //////////////////////////////////
