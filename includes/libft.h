@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 04:02:20 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 04:09:35 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 //
 /////////////////////////////////
 
+/*---===FILE_DEF===---*/
+
 # define OPEN_RO 	  0
 # define OPEN_WO 	  1
 # define OPEN_RW 	  2
@@ -44,6 +46,9 @@
 # define OPEN_DIR     0x00200000
 # define OPEN_NOFLW   0x00000100
 # define OPEN_CLOEXEC 0x00400000
+
+/*---===SEEK_DEF===---*/
+
 # define SEEK_SET	  0
 # define SEEK_CUR     1
 # define SEEK_END     2
@@ -129,5 +134,6 @@ extern int		ft_write(unsigned int fd, const char *buf, size_t len);
 extern int		ft_open(const char *filename, int flags, int mode);
 extern int		ft_close(unsigned int fd);
 extern int		ft_exit(int code);
+extern int		ft_chdir(const char *path);
 
 #endif
