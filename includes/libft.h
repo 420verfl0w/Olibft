@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 02:45:43 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 02:50:21 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ extern int		ft_toupper(int c);
 //
 /////////////////////////////////
 
+extern int		ft_read(unsigned int fd, char *buf, size_t len);
 extern int		ft_write(unsigned int fd, const char *buf, size_t len);
 
 #endif
