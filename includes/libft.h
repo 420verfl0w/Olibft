@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 16:10:51 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:59:44 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,141 +208,113 @@ extern int		ft_dup2(unsigned int oldfd, unsigned int newfd);
 int				*__ft_bits_get_errno_location(void);
 # define FT_ERRNO (*__ft_bits_get_errno_location())
 
-extern char		*ft_strerror(int e);
+const char		*ft_strerrno(int e);
 
-# define FT_EPERM            1
-# define FT_ENOENT           2
-# define FT_ESRCH            3
-# define FT_EINTR            4
-# define FT_EIO              5
-# define FT_ENXIO            6
-# define FT_E2BIG            7
-# define FT_ENOEXEC          8
-# define FT_EBADF            9
-# define FT_ECHILD          10
-# define FT_EAGAIN          11
-# define FT_ENOMEM          12
-# define FT_EACCES          13
-# define FT_EFAULT          14
-# define FT_ENOTBLK         15
-# define FT_EBUSY           16
-# define FT_EEXIST          17
-# define FT_EXDEV           18
-# define FT_ENODEV          19
-# define FT_ENOTDIR         20
-# define FT_EISDIR          21
-# define FT_EINVAL          22
-# define FT_ENFILE          23
-# define FT_EMFILE          24
-# define FT_ENOTTY          25
-# define FT_ETXTBSY         26
-# define FT_EFBIG           27
-# define FT_ENOSPC          28
-# define FT_ESPIPE          29
-# define FT_EROFS           30
-# define FT_EMLINK          31
-# define FT_EPIPE           32
-# define FT_EDOM            33
-# define FT_ERANGE          34
-# define FT_EDEADLK         35
-# define FT_ENAMETOOLONG    36
-# define FT_ENOLCK          37
-# define FT_ENOSYS          38
-# define FT_ENOTEMPTY       39
-# define FT_ELOOP           40
-# define FT_EWOULDBLOCK     FT_EAGAIN
-# define FT_ENOMSG          42
-# define FT_EIDRM           43
-# define FT_ECHRNG          44
-# define FT_EL2NSYNC        45
-# define FT_EL3HLT          46
-# define FT_EL3RST          47
-# define FT_ELNRNG          48
-# define FT_EUNATCH         49
-# define FT_ENOCSI          50
-# define FT_EL2HLT          51
-# define FT_EBADE           52
-# define FT_EBADR           53
-# define FT_EXFULL          54
-# define FT_ENOANO          55
-# define FT_EBADRQC         56
-# define FT_EBADSLT         57
-# define FT_EDEADLOCK       FT_EDEADLK
-# define FT_EBFONT          59
-# define FT_ENOSTR          60
-# define FT_ENODATA         61
-# define FT_ETIME           62
-# define FT_ENOSR           63
-# define FT_ENONET          64
-# define FT_ENOPKG          65
-# define FT_EREMOTE         66
-# define FT_ENOLINK         67
-# define FT_EADV            68
-# define FT_ESRMNT          69
-# define FT_ECOMM           70
-# define FT_EPROTO          71
-# define FT_EMULTIHOP       72
-# define FT_EDOTDOT         73
-# define FT_EBADMSG         74
-# define FT_EOVERFLOW       75
-# define FT_ENOTUNIQ        76
-# define FT_EBADFD          77
-# define FT_EREMCHG         78
-# define FT_ELIBACC         79
-# define FT_ELIBBAD         80
-# define FT_ELIBSCN         81
-# define FT_ELIBMAX         82
-# define FT_ELIBEXEC        83
-# define FT_EILSEQ          84
-# define FT_ERESTART        85
-# define FT_ESTRPIPE        86
-# define FT_EUSERS          87
-# define FT_ENOTSOCK        88
-# define FT_EDESTADDRREQ    89
-# define FT_EMSGSIZE        90
-# define FT_EPROTOTYPE      91
-# define FT_ENOPROTOOPT     92
-# define FT_EPROTONOSUPPORT 93
-# define FT_ESOCKTNOSUPPORT 94
-# define FT_EOPNOTSUPP      95
-# define FT_ENOTSUP         FT_EOPNOTSUPP
-# define FT_EPFNOSUPPORT    96
-# define FT_EAFNOSUPPORT    97
-# define FT_EADDRINUSE      98
-# define FT_EADDRNOTAVAIL   99
-# define FT_ENETDOWN        100
-# define FT_ENETUNREACH     101
-# define FT_ENETRESET       102
-# define FT_ECONNABORTED    103
-# define FT_ECONNRESET      104
-# define FT_ENOBUFS         105
-# define FT_EISCONN         106
-# define FT_ENOTCONN        107
-# define FT_ESHUTDOWN       108
-# define FT_ETOOMANYREFS    109
-# define FT_ETIMEDOUT       110
-# define FT_ECONNREFUSED    111
-# define FT_EHOSTDOWN       112
-# define FT_EHOSTUNREACH    113
-# define FT_EALREADY        114
-# define FT_EINPROGRESS     115
-# define FT_ESTALE          116
-# define FT_EUCLEAN         117
-# define FT_ENOTNAM         118
-# define FT_ENAVAIL         119
-# define FT_EISNAM          120
-# define FT_EREMOTEIO       121
-# define FT_EDQUOT          122
-# define FT_ENOMEDIUM       123
-# define FT_EMEDIUMTYPE     124
-# define FT_ECANCELED       125
-# define FT_ENOKEY          126
-# define FT_EKEYEXPIRED     127
-# define FT_EKEYREVOKED     128
-# define FT_EKEYREJECTED    129
-# define FT_EOWNERDEAD      130
-# define FT_ENOTRECOVERABLE 131
-# define FT_ERFKILL         132
-# define FT_EHWPOISON       133
+# define FT_EPERM		0x1	/* Operation not permitted */
+# define FT_ENOENT		0x2	/* No such file or directory */
+# define FT_ESRCH		0x3	/* No such process */
+# define FT_EINTR		0x4	/* Interrupted system call */
+# define FT_EIO			0x5	/* Input/output error */
+# define FT_ENXIO		0x6	/* No such device or address */
+# define FT_E2BIG		0x7	/* Argument list too long */
+# define FT_ENOEXEC		0x8	/* Exec format error */
+# define FT_EBADF		0x9	/* Bad file descriptor */
+# define FT_ECHILD		0xa	/* No child processes */
+# define FT_EDEADLK		0xb	/* Resource deadlock avoided */
+# define FT_ENOMEM		0xc	/* Cannot allocate memory */
+# define FT_EACCES		0xd	/* Permission denied */
+# define FT_EFAULT		0xe	/* Bad address */
+# define FT_ENOTBLK		0xf	/* Block device required */
+# define FT_EBUSY		0x10	/* Device or resource busy */
+# define FT_EEXIST		0x11	/* File exists */
+# define FT_EXDEV		0x12	/* Invalid cross-device link */
+# define FT_ENODEV		0x13	/* No such device */
+# define FT_ENOTDIR		0x14	/* Not a directory */
+# define FT_EISDIR		0x15	/* Is a directory */
+# define FT_EINVAL		0x16	/* Invalid argument */
+# define FT_EMFILE		0x18	/* Too many open files */
+# define FT_ENFILE		0x17	/* Too many open files in system */
+# define FT_ENOTTY		0x19	/* Inappropriate ioctl for device */
+# define FT_ETXTBSY		0x1a	/* Text file busy */
+# define FT_EFBIG		0x1b	/* File too large */
+# define FT_ENOSPC		0x1c	/* No space left on device */
+# define FT_ESPIPE		0x1d	/* Illegal seek */
+# define FT_EROFS		0x1e	/* Read-only file system */
+# define FT_EMLINK		0x1f	/* Too many links */
+# define FT_EPIPE		0x20	/* Broken pipe */
+# define FT_EDOM		0x21	/* Numerical argument out of domain */
+# define FT_ERANGE		0x22	/* Numerical result out of range */
+# define FT_EAGAIN		0x23	/* Resource temporarily unavailable */
+# define FT_EINPROGRESS		0x24	/* Operation now in progress */
+# define FT_EALREADY		0x25	/* Operation already in progress */
+# define FT_ENOTSOCK		0x26	/* Socket operation on non-socket */
+# define FT_EMSGSIZE		0x28	/* Message too long */
+# define FT_EPROTOTYPE		0x29	/* Protocol wrong type for socket */
+# define FT_ENOPROTOOPT		0x2a	/* Protocol not available */
+# define FT_EPROTONOSUPPORT		0x2b	/* Protocol not supported */
+# define FT_ESOCKTNOSUPPORT		0x2c	/* Socket type not supported */
+# define FT_EOPNOTSUPP			0x2d	/* Operation not supported */
+# define FT_EPFNOSUPPORT		0x2e	/* Protocol family not supported */
+# define FT_EAFNOSUPPORT		0x2f	/* Address family not supported by protocol */
+# define FT_EADDRINUSE			0x30	/* Address already in use */
+# define FT_EADDRNOTAVAIL		0x31	/* Cannot assign requested address */
+# define FT_ENETDOWN		0x32	/* Network is down */
+# define FT_ENETUNREACH		0x33	/* Network is unreachable */
+# define FT_ENETRESET		0x34	/* Network dropped connection on reset */
+# define FT_ECONNABORTED	0x35	/* Software caused connection abort */
+# define FT_ECONNRESET		0x36	/* Connection reset by peer */
+# define FT_ENOBUFS			0x37	/* No buffer space available */
+# define FT_EISCONN			0x38	/* Transport endpoint is already connected */
+# define FT_ENOTCONN		0x39	/* Transport endpoint is not connected */
+# define FT_EDESTADDRREQ	0x27	/* Destination address required */
+# define FT_ESHUTDOWN		0x3a	/* Cannot send after transport endpoint shutdown */
+# define FT_ETOOMANYREFS	0x3b	/* Too many references: cannot splice */
+# define FT_ETIMEDOUT		0x3c	/* Connection timed out */
+# define FT_ECONNREFUSED	0x3d	/* Connection refused */
+# define FT_ELOOP			0x3e	/* Too many levels of symbolic links */
+# define FT_ENAMETOOLONG	0x3f	/* File name too long */
+# define FT_EHOSTDOWN		0x40	/* Host is down */
+# define FT_EHOSTUNREACH	0x41	/* No route to host */
+# define FT_ENOTEMPTY		0x42	/* Directory not empty */
+# define FT_EPROCLIM		0x43	/* Too many processes */
+# define FT_EUSERS		0x44	/* Too many users */
+# define FT_EDQUOT		0x45	/* Disk quota exceeded */
+# define FT_ESTALE		0x46	/* Stale file handle */
+# define FT_EREMOTE		0x47	/* Object is remote */
+# define FT_EBADRPC		0x48	/* RPC struct is bad */
+# define FT_ERPCMISMATCH		0x49	/* RPC version wrong */
+# define FT_EPROGUNAVAIL		0x4a	/* RPC program not available */
+# define FT_EPROGMISMATCH		0x4b	/* RPC program version wrong */
+# define FT_EPROCUNAVAIL		0x4c	/* RPC bad procedure for program */
+# define FT_ENOLCK		0x4d	/* No locks available */
+# define FT_EFTYPE		0x4f	/* Inappropriate file type or format */
+# define FT_EAUTH		0x50	/* Authentication error */
+# define FT_ENEEDAUTH	0x51	/* Need authenticator */
+# define FT_ENOSYS		0x4e	/* Function not implemented */
+# define FT_ENOTSUP		0x76	/* Not supported */
+# define FT_EILSEQ		0x6a	/* Invalid or incomplete multibyte or wide character */
+# define FT_EBACKGROUND	0x64	/* Inappropriate operation for background process */
+# define FT_EDIED		0x65	/* Translator died */
+# define FT_ED			0x66	/* ? */
+# define FT_EGREGIOUS	0x67	/* You really blew it this time */
+# define FT_EIEIO		0x68	/* Computer bought the farm */
+# define FT_EGRATUITOUS	0x69	/* Gratuitous error */
+# define FT_EBADMSG		0x6b	/* Bad message */
+# define FT_EIDRM		0x6c	/* Identifier removed */
+# define FT_EMULTIHOP	0x6d	/* Multihop attempted */
+# define FT_ENODATA		0x6e	/* No data available */
+# define FT_ENOLINK		0x6f	/* Link has been severed */
+# define FT_ENOMSG		0x70	/* No message of desired type */
+# define FT_ENOSR		0x71	/* Out of streams resources */
+# define FT_ENOSTR		0x72	/* Device not a stream */
+# define FT_EOVERFLOW	0x73	/* Value too large for defined data type */
+# define FT_EPROTO		0x74	/* Protocol error */
+# define FT_ETIME		0x75	/* Timer expired */
+# define FT_ECANCELED	0x77	/* Operation canceled */
+# define FT_EOWNERDEAD	0x78	/* Owner died */
+# define FT_ENOTRECOVERABLE		0x79	/* State not recoverable */
+
+// src/sys/ft_errnotab.c
+extern const char *g_errno_tab[103];
 
 #endif

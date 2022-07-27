@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errno.c                                         :+:      :+:    :+:   */
+/*   ft_strerrno.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 14:51:48 by maldavid          #+#    #+#             */
-/*   Updated: 2022/07/27 16:14:35 by maldavid         ###   ########.fr       */
+/*   Created: 2022/07/27 16:58:39 by maldavid          #+#    #+#             */
+/*   Updated: 2022/07/27 18:01:18 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef __STDC_NO_ATOMICS__
+#include "libft.h"
 
-static int			g_errno = 0;
-
-int	*__ft_bits_get_errno_location(void)
+const char	*ft_strerrno(int e)
 {
-	return (&g_errno);
+	if (~ -e > (int)(sizeof(g_errno_tab) / sizeof(char *)))
+		return ("ft_error : Unknown error code");
+	return (g_errno_tab[~ -e]);
 }
-#else
-
-static _Atomic int	g_errno = 0;
-
-_Atomic int	*__ft_bits_get_errno_location(void)
-{
-	return (&g_errno);
-}
-#endif

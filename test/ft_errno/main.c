@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errno.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 14:51:48 by maldavid          #+#    #+#             */
-/*   Updated: 2022/07/27 16:14:35 by maldavid         ###   ########.fr       */
+/*   Created: 2022/07/27 16:50:28 by maldavid          #+#    #+#             */
+/*   Updated: 2022/07/27 18:01:47 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef __STDC_NO_ATOMICS__
+#include <stdio.h>
+#include "libft.h"
 
-static int			g_errno = 0;
-
-int	*__ft_bits_get_errno_location(void)
+int	main(void)
 {
-	return (&g_errno);
+	FT_ERRNO = FT_ETIME;
+	puts(ft_strerrno(FT_ERRNO));
+	return (0);
 }
-#else
-
-static _Atomic int	g_errno = 0;
-
-_Atomic int	*__ft_bits_get_errno_location(void)
-{
-	return (&g_errno);
-}
-#endif
