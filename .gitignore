@@ -49,6 +49,8 @@ release/openlibft.a
 *.mod*
 *.cmd
 .tmp_versions/
+build/
+build-int/
 modules.order
 Module.symvers
 Mkfile.old

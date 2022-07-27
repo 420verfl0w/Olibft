@@ -13,8 +13,7 @@ public ft_abs
 section '.text' executable
 
 ft_abs:
-	mov edx, edi
-	sar edx, 28		; bit shifting edx to the left (edx >> 28)
-	lea eax, [rdi + rdx] ; make mask
-	xor eax, edx 	; aplying mask
+	mov ebx, eax
+	neg eax
+	cmovl eax, ebx ; if eax is now negative, restore its saved value
 	ret

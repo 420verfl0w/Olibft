@@ -1,0 +1,15 @@
+{
+    find_program = {
+        dmd = false,
+        gdc = false,
+        gcc = "/usr/bin/gcc",
+        ldc2 = false,
+        zig = false
+    },
+    find_program_fasm_arch_x86_64_plat_linux_checktoolas = {
+        fasm = "/nfs/homes/maldavid/.local/bin/fasm"
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolar = {
+        ar = "/usr/bin/ar"
+    }
+}
