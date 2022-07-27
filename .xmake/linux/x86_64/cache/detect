@@ -1,65 +1,169 @@
 {
-    find_program_gcc_arch_x86_64_plat_linux_checktoolcc = {
+    find_program_fpc_arch_x86_64_plat_linux_checktoolpcsh = {
+        fpc = false
+    },
+    ["detect.tools.gcc.has_cflags"] = {
+        ["/usr/bin/gcc_9.4.0-1ubuntu1"] = {
+            ["-time"] = true,
+            ["-S"] = true,
+            ["--param"] = true,
+            ["-print-sysroot"] = true,
+            ["-pipe"] = true,
+            ["-shared"] = true,
+            ["-print-multi-os-directory"] = true,
+            ["-print-libgcc-file-name"] = true,
+            ["-print-multiarch"] = true,
+            ["-print-multi-lib"] = true,
+            ["--version"] = true,
+            ["-E"] = true,
+            ["-v"] = true,
+            ["-dumpspecs"] = true,
+            ["-pie"] = true,
+            ["-B"] = true,
+            ["-save-temps"] = true,
+            ["-no-canonical-prefixes"] = true,
+            ["-print-multi-directory"] = true,
+            ["-Xpreprocessor"] = true,
+            ["-Xlinker"] = true,
+            ["-print-search-dirs"] = true,
+            ["-c"] = true,
+            ["-o"] = true,
+            ["-dumpmachine"] = true,
+            ["--target-help"] = true,
+            ["-Xassembler"] = true,
+            ["--help"] = true,
+            ["-print-sysroot-headers-suffix"] = true,
+            ["-pass-exit-codes"] = true,
+            ["-dumpversion"] = true,
+            ["-x"] = true
+        }
+    },
+    find_program_nim_arch_x86_64_plat_linux_checktoolncar = {
+        nim = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolmxx = {
         gcc = "/usr/bin/gcc"
+    },
+    find_programver = {
+        ["/usr/bin/gcc"] = "9.4.0-1ubuntu1"
+    },
+    find_program_fpc_arch_x86_64_plat_linux_checktoolpcld = {
+        fpc = false
+    },
+    find_program_swift_arch_x86_64_plat_linux_checktoolsc = {
+        swiftc = false
+    },
+    find_program_fpc_arch_x86_64_plat_linux_checktoolpc = {
+        fpc = false
+    },
+    find_program_nim_arch_x86_64_plat_linux_checktoolncsh = {
+        nim = false
+    },
+    find_program_cuda_arch_x86_64_plat_linux_checktoolfcsh = {
+        nvfortran = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolcxx = {
+        gcc = "/usr/bin/gcc"
+    },
+    find_program_cuda_arch_x86_64_plat_linux_checktoolculd = {
+        nvcc = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolsh = {
+        ["g++"] = "/usr/bin/g++"
+    },
+    find_program_cuda_arch_x86_64_plat_linux_checktoolfc = {
+        nvfortran = false
     },
     find_program_fasm_arch_x86_64_plat_linux_checktoolas = {
         fasm = "/nfs/homes/stales/bin/fasm"
     },
+    find_program_go_arch_x86_64_plat_linux_checktoolgc = {
+        gccgo = false,
+        go = false
+    },
     ["lib.detect.has_flags"] = {
+        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-fdiagnostics-color=always"] = true,
+        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-MMD -MF"] = true,
         ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc___-O3"] = true,
         ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-fPIC"] = true,
-        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-MMD -MF"] = true,
-        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-DNDEBUG"] = true,
-        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-fdiagnostics-color=always"] = true
+        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cc_cxflags__-DNDEBUG"] = true
+    },
+    find_program_rust_arch_x86_64_plat_linux_checktoolrcar = {
+        rustc = false
     },
     find_program_gcc_arch_x86_64_plat_linux_checktoolar = {
         ar = "/usr/bin/ar"
     },
+    find_program_swift_arch_x86_64_plat_linux_checktoolscsh = {
+        swiftc = false
+    },
+    find_program_go_arch_x86_64_plat_linux_checktoolgcld = {
+        gccgo = false,
+        go = false
+    },
+    find_program_cuda_arch_x86_64_plat_linux_checktoolfcld = {
+        nvfortran = false
+    },
+    ["detect.sdks.find_cuda"] = {
+        cuda = false
+    },
+    find_program_rust_arch_x86_64_plat_linux_checktoolrcsh = {
+        rustc = false
+    },
+    find_program_go_arch_x86_64_plat_linux_checktoolgcar = {
+        gccgo = false,
+        go = false
+    },
+    find_program_rust_arch_x86_64_plat_linux_checktoolrc = {
+        rustc = false
+    },
+    find_program_rust_arch_x86_64_plat_linux_checktoolrcld = {
+        rustc = false
+    },
+    find_program_cuda_arch_x86_64_plat_linux_checktoolcu = {
+        nvcc = false,
+        clang = "/usr/bin/clang"
+    },
+    find_program_nim_arch_x86_64_plat_linux_checktoolncld = {
+        nim = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolmm = {
+        gcc = "/usr/bin/gcc"
+    },
+    find_program_gfortran_arch_x86_64_plat_linux_checktoolfcsh = {
+        gfortran = false,
+        g95 = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolcc = {
+        gcc = "/usr/bin/gcc"
+    },
+    find_program_swift_arch_x86_64_plat_linux_checktoolscld = {
+        swiftc = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolld = {
+        ["g++"] = "/usr/bin/g++"
+    },
+    find_program_nim_arch_x86_64_plat_linux_checktoolnc = {
+        nim = false
+    },
     find_program = {
-        zig = false,
-        dmd = false,
-        ldc2 = false,
+        ["/usr/bin/gcc"] = "/usr/bin/gcc",
         gdc = false,
         gcc = "/usr/bin/gcc",
-        ["/usr/bin/gcc"] = "/usr/bin/gcc"
+        ldc2 = false,
+        zig = false,
+        ccache = false,
+        dmd = false
     },
-    ["detect.tools.gcc.has_cflags"] = {
-        ["/usr/bin/gcc_9.4.0-1ubuntu1"] = {
-            ["--target-help"] = true,
-            ["-S"] = true,
-            ["-print-multi-lib"] = true,
-            ["-dumpmachine"] = true,
-            ["-print-multiarch"] = true,
-            ["--help"] = true,
-            ["-shared"] = true,
-            ["--version"] = true,
-            ["-dumpspecs"] = true,
-            ["-pie"] = true,
-            ["-B"] = true,
-            ["-E"] = true,
-            ["-save-temps"] = true,
-            ["-Xassembler"] = true,
-            ["-pass-exit-codes"] = true,
-            ["--param"] = true,
-            ["-print-multi-os-directory"] = true,
-            ["-print-sysroot-headers-suffix"] = true,
-            ["-Xpreprocessor"] = true,
-            ["-o"] = true,
-            ["-Xlinker"] = true,
-            ["-print-sysroot"] = true,
-            ["-print-search-dirs"] = true,
-            ["-print-libgcc-file-name"] = true,
-            ["-v"] = true,
-            ["-no-canonical-prefixes"] = true,
-            ["-x"] = true,
-            ["-print-multi-directory"] = true,
-            ["-pipe"] = true,
-            ["-dumpversion"] = true,
-            ["-time"] = true,
-            ["-c"] = true
-        }
+    find_program_gfortran_arch_x86_64_plat_linux_checktoolfcld = {
+        gfortran = false,
+        g95 = false
     },
-    find_programver = {
-        ["/usr/bin/gcc"] = "9.4.0-1ubuntu1"
+    find_program_gfortran_arch_x86_64_plat_linux_checktoolfc = {
+        gfortran = false,
+        g95 = false
+    },
+    find_program_gcc_arch_x86_64_plat_linux_checktoolas = {
+        gcc = "/usr/bin/gcc"
     }
 }

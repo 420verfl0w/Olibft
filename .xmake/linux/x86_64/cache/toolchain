@@ -1,31 +1,21 @@
 {
-    tool_target_olibft_maths_linux_x86_64_as = {
-        program = "/nfs/homes/stales/bin/fasm",
+    tool_platform_linux_x86_64_cu = {
+        program = "/usr/bin/clang",
         toolchain_info = {
-            name = "fasm",
+            name = "cuda",
             plat = "linux",
-            arch = "x86_64",
-            cachekey = "fasm_arch_x86_64_plat_linux"
+            cachekey = "cuda_arch_x86_64_plat_linux",
+            arch = "x86_64"
         },
-        toolname = "fasm"
+        toolname = "clang"
     },
     tool_target_olibft_core_linux_x86_64_as = {
         program = "/nfs/homes/stales/bin/fasm",
         toolchain_info = {
             name = "fasm",
             plat = "linux",
-            arch = "x86_64",
-            cachekey = "fasm_arch_x86_64_plat_linux"
-        },
-        toolname = "fasm"
-    },
-    tool_target_olibft_sys_linux_x86_64_as = {
-        program = "/nfs/homes/stales/bin/fasm",
-        toolchain_info = {
-            name = "fasm",
-            plat = "linux",
-            arch = "x86_64",
-            cachekey = "fasm_arch_x86_64_plat_linux"
+            cachekey = "fasm_arch_x86_64_plat_linux",
+            arch = "x86_64"
         },
         toolname = "fasm"
     },
@@ -34,8 +24,18 @@
         toolchain_info = {
             name = "gcc",
             plat = "linux",
-            arch = "x86_64",
-            cachekey = "gcc_arch_x86_64_plat_linux"
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "gcc"
+    },
+    tool_platform_linux_x86_64_mxx = {
+        program = "/usr/bin/gcc",
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
         },
         toolname = "gcc"
     },
@@ -44,9 +44,79 @@
         toolchain_info = {
             name = "gcc",
             plat = "linux",
-            arch = "x86_64",
-            cachekey = "gcc_arch_x86_64_plat_linux"
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
         },
         toolname = "ar"
+    },
+    tool_target_olibft_maths_linux_x86_64_as = {
+        program = "/nfs/homes/stales/bin/fasm",
+        toolchain_info = {
+            name = "fasm",
+            plat = "linux",
+            cachekey = "fasm_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "fasm"
+    },
+    tool_target_olibft_sys_linux_x86_64_as = {
+        program = "/nfs/homes/stales/bin/fasm",
+        toolchain_info = {
+            name = "fasm",
+            plat = "linux",
+            cachekey = "fasm_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "fasm"
+    },
+    tool_platform_linux_x86_64_mm = {
+        program = "/usr/bin/gcc",
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "gcc"
+    },
+    tool_platform_linux_x86_64_ld = {
+        program = "/usr/bin/g++",
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "gxx"
+    },
+    tool_platform_linux_x86_64_sh = {
+        program = "/usr/bin/g++",
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "gxx"
+    },
+    tool_platform_linux_x86_64_cxx = {
+        program = "/usr/bin/gcc",
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "gcc"
+    },
+    tool_platform_linux_x86_64_as = {
+        program = "/usr/bin/gcc",
+        toolchain_info = {
+            name = "gcc",
+            plat = "linux",
+            cachekey = "gcc_arch_x86_64_plat_linux",
+            arch = "x86_64"
+        },
+        toolname = "gcc"
     }
 }

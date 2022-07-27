@@ -1,11 +1,5 @@
 {
     cmdlines = {
-        "xmake clean",
-        "xmake -b all",
-        "xmake -b all",
-        "xmake clean",
-        "xmake ",
-        "xmake clean",
         "xmake ",
         "xmake ",
         "xmake ",
@@ -64,6 +58,12 @@
         "xmake g --theme=ninja",
         "xmake -b all",
         "xmake -b clean",
+        "xmake clean",
+        "xmake project -k makefile",
+        "xmake project -k Makefile",
+        "xmake project -k makefile",
+        "xmake -b all",
+        "xmake build all",
         "xmake clean"
     }
 }
