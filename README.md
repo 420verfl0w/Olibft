@@ -8,18 +8,20 @@ Here is the Openlibft mainly written in assembler in order to optimize the code 
 ❌ = not touched<br>
 🚧 = work in progress<br>
 
+![Olibft.png](olibft.png)
+
 ### Function list
 
 |Fonctions			|is_done ?|is_documented ?|				reference ? 		   | 
 |:------------------|:-------:|:-------------:|:----------------------------------:|
-|ft_atoi			|✔️ (Part1)|      ✔️        | [ft_atoi](./src/utils/ft_atoi.asm) |
-|ft_isalpha			|✔️ (Part1)|      ✔️        | [ft_isalpha](./src/strings/ft_isalpha.asm) |
-|ft_isdigit			|✔️ (Part1)|      ✔️        | [ft_isdigit](./src/utils/ft_isdigit.asm) |
-|ft_isalnum			|✔️ (Part1)|      ✔️        | [ft_isalnum](./src/utils/ft_isalnum.asm) |
-|ft_isascii			|✔️ (Part1)|      ✔️        | [ft_isascii](./src/utils/ft_isascii.asm) |
-|ft_isprint			|✔️ (Part1)|      ✔️        | [ft_isprint](./src/utils/ft_isprint.asm) |
-|ft_tolower			|✔️ (Part1)|      ✔️        | [ft_tolower](./src/strings/ft_tolower.asm) |
-|ft_toupper			|✔️ (Part1)|      ✔️        | [ft_toupper](./src/strings/ft_toupper.asm) |
+|ft_atoi			|✔️ (PART1)|      ✔️        | [ft_atoi](./src/utils/ft_atoi.asm) |
+|ft_isalpha			|✔️ (PART1)|      ✔️        | [ft_isalpha](./src/strings/ft_isalpha.asm) |
+|ft_isdigit			|✔️ (PART1)|      ✔️        | [ft_isdigit](./src/utils/ft_isdigit.asm) |
+|ft_isalnum			|✔️ (PART1)|      ✔️        | [ft_isalnum](./src/utils/ft_isalnum.asm) |
+|ft_isascii			|✔️ (PART1)|      ✔️        | [ft_isascii](./src/utils/ft_isascii.asm) |
+|ft_isprint			|✔️ (PART1)|      ✔️        | [ft_isprint](./src/utils/ft_isprint.asm) |
+|ft_tolower			|✔️ (PART1)|      ✔️        | [ft_tolower](./src/strings/ft_tolower.asm) |
+|ft_toupper			|✔️ (PART1)|      ✔️        | [ft_toupper](./src/strings/ft_toupper.asm) |
 |ft_write			|✔️ (SCALL)|      ✔️        | [ft_write](./src/syscalls/ft_write.asm) |
 |ft_read			|✔️ (SCALL)|      ✔️        | [ft_read](./src/syscalls/ft_read.asm) |
 |ft_open			|✔️ (SCALL)|      ✔️        | [ft_open](./src/syscalls/ft_open.asm) |
@@ -38,5 +40,6 @@ Here is the Openlibft mainly written in assembler in order to optimize the code 
 |ft_isxdigit		|✔️ (UTILS)|      ✔️        | [ft_isxdigit](./src/strings/ft_isxdigit.asm) |
 |ft_isgraph			|✔️ (UTILS)|      ✔️        | [ft_isgraph](./src/strings/ft_isgraph.asm) |
 |ft_iscntrl			|✔️ (UTILS)|      ✔️        |[ft_iscntrl](./src/strings/ft_iscntrl.asm) |
-|ft_putchar			|✔️ (Part2)|      ✔️        | [ft_putchar](./src/strings/ft_putchar.asm) |
+|ft_putchar			|✔️ (UTILS)|      ✔️        | [ft_putchar](./src/strings/ft_putchar.asm) |
+|ft_strerror		|✔️ (PART2)|      ✔️        | [ft_strerror](./src/sys/ft_strerrno.asm) |
 
