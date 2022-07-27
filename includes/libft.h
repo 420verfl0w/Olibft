@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 03:30:12 by sam              ###   ########.fr       */
+/*   Updated: 2022/07/27 03:56:56 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 /////////////////////////////////
 
 # include <stddef.h>
+# include <stdint.h>
+# include <sys/types.h>
 
 /////////////////////////////////
 //
@@ -42,6 +44,12 @@
 # define OPEN_DIR     0x00200000
 # define OPEN_NOFLW   0x00000100
 # define OPEN_CLOEXEC 0x00400000
+# define SEEK_SET	  0
+# define SEEK_CUR     1
+# define SEEK_END     2
+# define SEEK_DATA    3
+# define SEEK_HOLE    4
+# define SEEK_MAX	  4
 
 /////////////////////////////////
 //
@@ -119,5 +127,6 @@ extern int		ft_read(unsigned int fd, char *buf, size_t len);
 extern int		ft_write(unsigned int fd, const char *buf, size_t len);
 extern int		ft_open(const char *filename, int flags, int mode);
 extern int		ft_close(unsigned int fd);
+extern off_t	ft_lseek(unsigned int fd, off_t offset, unsigned int whence);
 
 #endif
