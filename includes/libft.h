@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 14:05:23 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/27 15:21:36 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 //			DEFINES
 //
 /////////////////////////////////
+
+/*---===STDFD===---*/
+
+# define STDIN_FD	 0x0
+# define STDOUT_FD	 0x1
+# define STDERR_FD	 0x2
 
 /*---===FILE_DEF===---*/
 
@@ -174,5 +180,7 @@ extern int		ft_close(unsigned int fd);
 extern int		ft_exit(int code);
 extern int		ft_chdir(const char *path);
 extern t_pid	ft_fork(void);
+extern int		ft_dup(unsigned int fd);
+extern int		ft_dup2(unsigned int oldfd, unsigned int newfd);
 
 #endif
