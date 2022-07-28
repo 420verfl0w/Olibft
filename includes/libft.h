@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 18:06:53 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/28 18:36:09 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,13 +117,14 @@
 /////////////////////////////////
 
 typedef double			t_f64;
+typedef unsigned char	t_byte;
+typedef unsigned char	t_u8;
+typedef unsigned short	t_u16;
 typedef unsigned int	t_u32;
+typedef unsigned long	t_u64;
 typedef float			t_f32;
 typedef int				t_fd;
 typedef int				t_pid;
-# ifdef FT_USE_NETWORK
-typedef uint16_t		t_port;
-# endif
 
 /////////////////////////////////
 //
@@ -376,8 +377,8 @@ const char			*ft_strerrno(int e);
 //
 //////////////////////////////////
 
-extern	unsigned long	ft_bswap_64(unsigned long x);
-extern	unsigned int	ft_bswap_32(unsigned int x);
-extern	unsigned short	ft_bswap_16(unsigned short x);
+extern	t_u64	ft_bswap_64(t_u64 x);
+extern	t_u32	ft_bswap_32(t_u64 x);
+extern	t_u16	ft_bswap_16(t_u64 x);
 
 #endif
