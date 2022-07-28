@@ -71,3 +71,20 @@ target("all")
     add_files("src/maths/*.asm")
     add_files("src/strings/*.asm", "src/utils/*.asm", "src/strings/**/*.asm")
 target_end()
+
+target("clean")
+	set_kind("phony")
+	set_default(false)
+	on_load(function(target)
+		os.rm("build-int")
+    end);
+target_end()
+
+target("fclean")
+	set_kind("phony")
+	set_default(false)
+	on_load(function(target)
+		os.rm("build-int")
+		os.rm("build")
+    end);
+target_end()

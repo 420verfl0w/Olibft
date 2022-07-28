@@ -6,7 +6,7 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-format ELF64
+include 'memset_utils.asm'
 
 public __memset_sse2_unaligned_erms
 
@@ -21,7 +21,7 @@ __memset_sse2_unaligned_erms:
 	punpcklwd xmm0, xmm0
 	pshufd  xmm0, xmm0, 0
 	cmp rdx, 0x10
-	jb .L02
+	jb smart_setter
 	cmp rdx, 0x20
 	ja .L01
 	movdqu  xword [rdi + rdx - 0x10], xmm0
@@ -30,17 +30,38 @@ __memset_sse2_unaligned_erms:
 
 .L01:
 	cmp rdx, 0x800
-	ja .setter ; defined in __memset_erms.asm
+	ja dumb_setter
+	cmp rdx, 0x40 
+	ja .L02
+	movdqu xword [rdi], xmm0
+	movdqu xword [rdi + 0x10], xmm0
+	movdqu xword [rdi + rdx - 0x10], xmm0
+	movdqu xword [rdi + rdx - 0x20], xmm0
+	ret
 
 .L02:
-	movq    rcx, xmm0
-	cmp     dl, 8 
-	; TODO, continue demain
+	lea     rcx, [rdi + 0x40]
+	movdqu  xword [rdi], xmm0
+	and     rcx, 0xffffffffffffffc0
+	movdqu  xword [rdi + rdx - 0x10], xmm0
+	movdqu  xword [rdi + 0x10], xmm0
+	movdqu  xword [rdi + rdx - 0x20], xmm0
+	movdqu  xword [rdi + 0x20], xmm0
+	movdqu  xword [rdi + rdx - 0x30], xmm0
+	movdqu  xword [rdi + 0x30], xmm0
+	movdqu  xword [rdi + rdx - 0x40], xmm0
+	add     rdx, rdi
+	and     rdx, 0xffffffffffffffc0
+	cmp     rcx, rdx
+	ja end_func
+	jmp .L03
 
-.setter:
-	mov     rcx, rdx
-	movzx   eax, sil
-	mov     rdx, rdi
-	rep    	stosb
-	mov     rax, rdx
+.L03:
+	movdqa  xword [rcx], xmm0
+	movdqa  xword [rcx + 0x10], xmm0
+	movdqa  xword [rcx + 0x20], xmm0
+	movdqa  xword [rcx + 0x30], xmm0
+	add     rcx, 0x40
+	cmp     rdx, rcx
+	jne     .L03
 	ret

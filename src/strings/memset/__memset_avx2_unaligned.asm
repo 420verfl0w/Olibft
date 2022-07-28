@@ -12,8 +12,6 @@ public __memset_avx2_unaligned
 
 section '.text' executable
 
-; PS : si ca marche pas rajoute endbr64 au debut
-
 __memset_avx2_unaligned:
 	vmovd xmm0, esi
 	mov rax, rdi

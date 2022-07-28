@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 17:09:58 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/28 17:22:30 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,22 @@
 # include <sys/types.h>
 # include <limits.h>
 
-# ifdef FT_USE_NETWORK
-# include <sys/socket.h>
-# include <netdb.h>
-# include <arpa/inet.h>
-# endif
-
 /////////////////////////////////
 //
 //			DEFINES
 //
 /////////////////////////////////
 
-# define FT_NULL		(void *)0
+# ifndef FT_NULL
+#  if defined(__cplusplus)
+#   define FT_NULL 0L
+#  elif __STDC_VERSION__ >= 199901L
+#   define FT_NULL 0
+#  else
+#   define FT_NULL ((void*)0)
+#  endif
+# endif
+
 # define FT_ERRNO		103
 
 /*---===STDFD===---*/
