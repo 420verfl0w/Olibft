@@ -41,7 +41,7 @@ local banner = [[
 target("olibft_core")
 	set_prefixname("")
     set_kind("static")
-    add_files("src/strings/*.asm", "src/utils/*.asm")
+    add_files("src/strings/*.asm", "src/utils/*.asm", "src/strings/**/*.asm")
 target_end()
 
 target("olibft_maths")

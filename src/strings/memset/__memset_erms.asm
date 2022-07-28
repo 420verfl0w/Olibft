@@ -22,6 +22,6 @@ __memset_erms:
 	mov     rcx, rdx
 	movzx   eax, sil
 	mov     rdx, rdi
-	rep     stosb byte [rdi], al
+	rep    	stosb
 	mov     rax, rdx
 	ret
