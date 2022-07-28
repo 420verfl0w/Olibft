@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 20:33:47 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/28 12:15:07 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,14 @@
 /* Invalidate the caches.  */
 # define MS_INVALIDATE		0x2
 
+/*---===SOCKET_DEF===---*/
+# define SOCK_STREAM		1		/* stream (connection) socket	*/
+# define SOCK_DGRAM			2		/* datagram (conn.less) socket	*/
+# define SOCK_RAW			3		/* raw socket*/
+# define SOCK_RDM			4		/* reliably-delivered message	*/
+# define SOCK_SEQPACKET		5		/* sequential packet socket	*/
+# define SOCK_PACKET		10		/* linux specify dev packet */
+
 /////////////////////////////////
 //
 //			TYPEDEFS
@@ -150,6 +158,27 @@ enum e_s_perm_flags
 //			STRUCT
 //
 //////////////////////////////////
+
+/*---===Network Struct===---*/
+
+struct	s_sockaddr
+{
+	unsigned short		sa_family;
+	char				sa_data[14];
+};
+
+struct	s_in_addr
+{
+	unsigned long		s_addr;
+};
+
+struct	s_sockaddr_in
+{
+	short				sin_family;
+	unsigned short		sin_port;
+	struct s_in_addr	sin_addr;
+	char				sin_zero[8];
+};
 
 //////////////////////////////////
 //
@@ -208,6 +237,7 @@ extern t_pid		ft_fork(void);
 extern int			ft_dup(unsigned int fd);
 extern int			ft_dup2(unsigned int oldfd, unsigned int newfd);
 extern int			ft_mprotect(void *addr, size_t len, int prot);
+extern int			ft_socket(int domain, int type, int protocol);
 
 /////////////////////////////////
 //
