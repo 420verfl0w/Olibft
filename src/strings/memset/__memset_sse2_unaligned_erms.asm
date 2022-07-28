@@ -12,8 +12,6 @@ public __memset_sse2_unaligned_erms
 
 section '.text' executable
 
-; PS : si ca marche pas rajoute endbr64 au debut
-
 __memset_sse2_unaligned_erms:
 	movd xmm0, esi
 	mov rax, rdi

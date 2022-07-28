@@ -12,7 +12,5 @@ public __memset_avx_no_vzeroupper
 
 section '.text' executable
 
-; TODO
-
 __memset_avx_no_vzeroupper:
 	ret

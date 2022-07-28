@@ -9,4 +9,10 @@
 format ELF64
 
 __memset_avx512_erms:
+	vzeroupper
+	mov rcx, rdx
+	movzx eax, sil
+	mov rdx, rdi
+	rep stosb
+	mov rax, rdx
 	ret

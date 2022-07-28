@@ -45,3 +45,4 @@ dumb_setter:
 	rep    	stosb
 	mov     rax, rdx
 	ret
+
