@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 12:15:07 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/28 13:23:17 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,38 @@
 # define SOCK_RDM			4		/* reliably-delivered message	*/
 # define SOCK_SEQPACKET		5		/* sequential packet socket	*/
 # define SOCK_PACKET		10		/* linux specify dev packet */
+# define AF_UNSPEC			0
+# define AF_UNIX			1	/* Unix domain sockets 		*/
+# define AF_INET			2	/* Internet IP Protocol 	*/
+# define AF_AX25			3	/* Amateur Radio AX.25 		*/
+# define AF_IPX				4	/* Novell IPX 			*/
+# define AF_APPLETALK		5	/* Appletalk DDP 		*/
+# define AF_NETROM			6	/* Amateur radio NetROM 	*/
+# define AF_BRIDGE			7	/* Multiprotocol bridge 	*/
+# define AF_AAL5			8	/* Reserved for Werner's ATM 	*/
+# define AF_X25				9	/* Reserved for X.25 project 	*/
+# define AF_INET6			10	/* IP version 6			*/
+# define AF_MAX				12	/* For now.. */
+/* Protocol families, same as address families. */
+# define PF_UNSPEC			AF_UNSPEC
+# define PF_UNIX			AF_UNIX
+# define PF_INET			AF_INET
+# define PF_AX25			AF_AX25
+# define PF_IPX				AF_IPX
+# define PF_APPLETALK		AF_APPLETALK
+# define PF_NETROM			AF_NETROM
+# define PF_BRIDGE			AF_BRIDGE
+# define PF_AAL5			AF_AAL5
+# define PF_X25				AF_X25
+# define PF_INET6			AF_INET6
+# define PF_MAX				AF_MAX
+# define SOL_IP				0
+# define SOL_IPX			256
+# define SOL_AX25			257
+# define SOL_ATALK			258
+# define SOL_NETROM			259
+# define SOL_TCP			6
+# define SOL_UDP			17
 
 /////////////////////////////////
 //
