@@ -11,7 +11,9 @@ set_targetdir("build/$(os)_$(arch)")
 
 add_rules("mode.debug", "mode.release")
 
-set_toolchains("fasm")
+set_toolchains("gcc", "fasm")
+set_config("cc", "gcc")
+set_languages("c11")
 
 set_warnings("allextra", "error")
 set_optimize("fastest")
@@ -66,10 +68,10 @@ target("olibft_network")
 target_end()
 
 target("all")
+	add_deps("checkISA")
 	before_build(function (target)
         print(string.format("\27[38;5;45m%s\27[0m", banner))
     end)
-
 	set_default(false)
 	set_kind("static")
 	set_basename("olibft")
