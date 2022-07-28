@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 19:26:07 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/28 20:04:52 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,8 +377,8 @@ const char			*ft_strerrno(int e);
 //
 //////////////////////////////////
 
-extern t_u64	ft_bswap_64(t_u64 x);
-extern t_u32	ft_bswap_32(t_u32 x);
-extern t_u16	ft_bswap_16(t_u16 x);
+extern t_u64		ft_bswap_64(t_u64 x);
+extern t_u32		ft_bswap_32(t_u32 x);
+extern t_u16		ft_bswap_16(t_u16 x);
 
 #endif

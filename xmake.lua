@@ -58,6 +58,13 @@ target("olibft_sys")
     add_files("src/sys/*.c", "src/syscalls/*.asm")
 target_end()
 
+target("olibft_network")
+	set_default(false)
+	set_prefixname("")
+	set_kind("static")
+	add_files("src/network/*.asm")
+target_end()
+
 target("all")
 	before_build(function (target)
         print(string.format("\27[38;5;45m%s\27[0m", banner))
