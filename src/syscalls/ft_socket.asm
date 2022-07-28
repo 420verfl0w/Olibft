@@ -13,6 +13,6 @@ public ft_socket
 section '.text' executable
 
 ft_socket:
-	mov rax, 0x119
+	mov rax, 0x29
 	syscall
 	ret

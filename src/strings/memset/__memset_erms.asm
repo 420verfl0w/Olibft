@@ -9,16 +9,17 @@
 format ELF64
 
 public __memset_erms
+public _setter
 
 section '.text' executable
 
 __memset_erms:
 	test rdx, rdx
-	jne .setter
+	jne _setter
 	mov rax, rdi
 	ret
 
-.setter:
+_setter:
 	mov     rcx, rdx
 	movzx   eax, sil
 	mov     rdx, rdi

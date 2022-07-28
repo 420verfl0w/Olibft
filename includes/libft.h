@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 13:23:17 by stales           ###   ########.fr       */
+/*   Updated: 2022/07/28 17:09:58 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # include <stddef.h>
 # include <stdint.h>
 # include <sys/types.h>
+# include <limits.h>
+
+# ifdef FT_USE_NETWORK
+# include <sys/socket.h>
+# include <netdb.h>
+# include <arpa/inet.h>
+# endif
 
 /////////////////////////////////
 //
@@ -29,113 +36,76 @@
 //
 /////////////////////////////////
 
+# define FT_NULL		(void *)0
+# define FT_ERRNO		103
+
 /*---===STDFD===---*/
 
-# define STDIN_FD	 0x0
-# define STDOUT_FD	 0x1
-# define STDERR_FD	 0x2
+# define FT_STDIN_FD	 0x0
+# define FT_STDOUT_FD	 0x1
+# define FT_STDERR_FD	 0x2
 
 /*---===FILE_DEF===---*/
 
-# define OPEN_RO 	  0
-# define OPEN_WO 	  1
-# define OPEN_RW 	  2
-# define OPEN_CREAT   0x0200
-# define OPEN_EXCL	  0x0800
-# define OPEN_TRUNC   0x0400
-# define OPEN_NOCTTY  0x8000
-# define OPEN_ASYNC   0x0040
-# define OPEN_FSYNC   0x0080
-# define OPEN_SYNC    0x0080
-# define OPEN_SHLOCK  0x0010
-# define OPEN_EXLOCK  0x0020
-# define OPEN_DIR     0x00200000
-# define OPEN_NOFLW   0x00000100
-# define OPEN_CLOEXEC 0x00400000
+# define FT_OPEN_RO 	  0
+# define FT_OPEN_WO 	  1
+# define FT_OPEN_RW 	  2
+# define FT_OPEN_CREAT   0x0200
+# define FT_OPEN_EXCL	 0x0800
+# define FT_OPEN_TRUNC   0x0400
+# define FT_OPEN_NOCTTY  0x8000
+# define FT_OPEN_ASYNC   0x0040
+# define FT_OPEN_FSYNC   0x0080
+# define FT_OPEN_SYNC    0x0080
+# define FT_OPEN_SHLOCK  0x0010
+# define FT_OPEN_EXLOCK  0x0020
+# define FT_OPEN_DIR     0x00200000
+# define FT_OPEN_NOFLW   0x00000100
+# define FT_OPEN_CLOEXEC 0x00400000
 
 /*---===SEEK_DEF===---*/
 
-# define SEEK_SET	  0
-# define SEEK_CUR     1
-# define SEEK_END     2
-# define SEEK_DATA    3
-# define SEEK_HOLE    4
-# define SEEK_MAX	  4
+# define FT_SEEK_SET	  0
+# define FT_SEEK_CUR     1
+# define FT_SEEK_END     2
+# define FT_SEEK_DATA    3
+# define FT_SEEK_HOLE    4
+# define FT_SEEK_MAX	  4
 
 /*---===MMAP_DEF===---*/
 
 /* Page can be read.  */
-# define PROT_READ	  		0x1
+# define FT_PROT_READ	  		0x1
 /* Page can be written.  */
-# define PROT_WRITE   		0x2
+# define FT_PROT_WRITE   		0x2
 /* Page can be executed.  */
-# define PROT_EXEC    		0x4
+# define FT_PROT_EXEC    		0x4
 /* Page can not be accessed.  */
-# define PROT_NONE    		0x0
+# define FT_PROT_NONE    		0x0
 /* Extend change to start of
  * growsdown vma (mprotect only).  */
-# define PROT_GROWSDOWN		0x01000000
+# define FT_PROT_GROWSDOWN		0x01000000
 /* Extend change to start of
  * growsup vma (mprotect only).  */
-# define PROT_GROWSUP		0x02000000
+# define FT_PROT_GROWSUP		0x02000000
 /* Share changes.  */
-# define MAP_SHARED			0x1
+# define FT_MAP_SHARED			0x1
 /* Map failed. */
-# define MAP_FAILED			((void *)-1)
+# define FT_MAP_FAILED			((void *)-1)
 /* Changes are private.  */
-# define MAP_PRIVATE		0x2
+# define FT_MAP_PRIVATE			0x2
 /* Mask for type of mapping.  */
-# define MAP_TYPE			0xF
+# define FT_MAP_TYPE			0xF
 /* Interpret addr exactly.  */
-# define MAP_FIXED			0x10
+# define FT_MAP_FIXED			0x10
 /* Don't use a file.  */
-# define MAP_ANONYMOUS		0x20
+# define FT_MAP_ANONYMOUS		0x20
 /* Sync memory asynchronously.  */
-# define MS_ASYNC			0x1
+# define FT_MS_ASYNC			0x1
 /* Synchronous memory sync.  */
-# define MS_SYNC			0x4
+# define FT_MS_SYNC				0x4
 /* Invalidate the caches.  */
-# define MS_INVALIDATE		0x2
-
-/*---===SOCKET_DEF===---*/
-# define SOCK_STREAM		1		/* stream (connection) socket	*/
-# define SOCK_DGRAM			2		/* datagram (conn.less) socket	*/
-# define SOCK_RAW			3		/* raw socket*/
-# define SOCK_RDM			4		/* reliably-delivered message	*/
-# define SOCK_SEQPACKET		5		/* sequential packet socket	*/
-# define SOCK_PACKET		10		/* linux specify dev packet */
-# define AF_UNSPEC			0
-# define AF_UNIX			1	/* Unix domain sockets 		*/
-# define AF_INET			2	/* Internet IP Protocol 	*/
-# define AF_AX25			3	/* Amateur Radio AX.25 		*/
-# define AF_IPX				4	/* Novell IPX 			*/
-# define AF_APPLETALK		5	/* Appletalk DDP 		*/
-# define AF_NETROM			6	/* Amateur radio NetROM 	*/
-# define AF_BRIDGE			7	/* Multiprotocol bridge 	*/
-# define AF_AAL5			8	/* Reserved for Werner's ATM 	*/
-# define AF_X25				9	/* Reserved for X.25 project 	*/
-# define AF_INET6			10	/* IP version 6			*/
-# define AF_MAX				12	/* For now.. */
-/* Protocol families, same as address families. */
-# define PF_UNSPEC			AF_UNSPEC
-# define PF_UNIX			AF_UNIX
-# define PF_INET			AF_INET
-# define PF_AX25			AF_AX25
-# define PF_IPX				AF_IPX
-# define PF_APPLETALK		AF_APPLETALK
-# define PF_NETROM			AF_NETROM
-# define PF_BRIDGE			AF_BRIDGE
-# define PF_AAL5			AF_AAL5
-# define PF_X25				AF_X25
-# define PF_INET6			AF_INET6
-# define PF_MAX				AF_MAX
-# define SOL_IP				0
-# define SOL_IPX			256
-# define SOL_AX25			257
-# define SOL_ATALK			258
-# define SOL_NETROM			259
-# define SOL_TCP			6
-# define SOL_UDP			17
+# define FT_MS_INVALIDATE		0x2
 
 /////////////////////////////////
 //
@@ -148,6 +118,9 @@ typedef unsigned int	t_u32;
 typedef float			t_f32;
 typedef int				t_fd;
 typedef int				t_pid;
+# ifdef FT_USE_NETWORK
+typedef uint16_t		t_port;
+# endif
 
 /////////////////////////////////
 //
@@ -278,7 +251,7 @@ extern int			ft_socket(int domain, int type, int protocol);
 /////////////////////////////////
 
 // src/sys/ft_errnotab.c
-extern const char		*g_errno_tab[103];
+extern const char		*g_errno_tab[FT_ERRNO];
 
 # ifdef __STDC_NO_ATOMICS__
 
