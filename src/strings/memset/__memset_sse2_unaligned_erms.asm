@@ -10,8 +10,6 @@ format ELF64
 
 public __memset_sse2_unaligned_erms
 
-file '__memset_erms.asm'
-
 section '.text' executable
 
 ; PS : si ca marche pas rajoute endbr64 au debut
@@ -38,3 +36,11 @@ __memset_sse2_unaligned_erms:
 	movq    rcx, xmm0
 	cmp     dl, 8 
 	; TODO, continue demain
+
+.setter:
+	mov     rcx, rdx
+	movzx   eax, sil
+	mov     rdx, rdi
+	rep    	stosb
+	mov     rax, rdx
+	ret
