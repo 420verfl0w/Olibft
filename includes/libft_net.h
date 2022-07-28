@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libft_net.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 16:55:29 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 17:30:22 by stales           ###   ########.fr       */
+/*   Created: 2022/07/28 17:28:35 by stales            #+#    #+#             */
+/*   Updated: 2022/07/28 18:14:41 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
-#include "libft_net.h"
+#ifndef LIBFT_NET_H
+# define LIBFT_NET_H
 
-int	main(void)
-{
-	int	fd;
+#ifndef LIBFT_H
+# include "libft.h"
+#endif
 
-	fd = ft_socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (fd < 0)
-		return (1);
-	printf("[+] Socket created !\n");
-	ft_close(fd);
-	return (0);
-}
+//////////////////////////////////
+//
+//			INCLUDES
+//
+//////////////////////////////////
+
+# include <sys/types.h>
+# include <sys/socket.h>
+# include <netdb.h>
+
+#endif

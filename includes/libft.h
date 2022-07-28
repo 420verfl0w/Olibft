@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/07/28 17:22:30 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:06:53 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -369,5 +369,15 @@ const char			*ft_strerrno(int e);
 # define FT_ECANCELED	0x77	
 # define FT_EOWNERDEAD	0x78	
 # define FT_ENOTRECOVERABLE		0x79
+
+//////////////////////////////////
+//
+//			FUNCTIONS
+//
+//////////////////////////////////
+
+extern	unsigned long	ft_bswap_64(unsigned long x);
+extern	unsigned int	ft_bswap_32(unsigned int x);
+extern	unsigned short	ft_bswap_16(unsigned short x);
 
 #endif
