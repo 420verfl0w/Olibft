@@ -14,26 +14,26 @@ end_func:
 smart_setter:
 	movq rcx, xmm0
 	cmp dl, 8 
-	jae .setbytes8 ; copy 8 bytes by 8 bytes
+	jae setbytes8 ; copy 8 bytes by 8 bytes
 	cmp dl, 4
-	jae	.setbytes4 ; copy 4 bytes by 4 bytes
+	jae setbytes4 ; copy 4 bytes by 4 bytes
 	cmp dl, 1
-	ja .setbytes1 ; copy bytes by bytes
+	ja setbytes1 ; copy bytes by bytes
 	jb end_func
 	mov byte [rdi], cl
 	ret
 
-.setbytes8:
+setbytes8:
 	mov qword [rdi + rdx - 8], rcx
 	mov qword [rdi], rcx
 	ret
 
-.setbytes4:
+setbytes4:
 	mov dword [rdi + rdx - 4], ecx
 	mov dword [rdi], ecx
 	ret
 
-.setbytes1:
+setbytes1:
 	mov word [rdi + rdx - 2], cx
 	mov word [rdi], cx
 	ret
