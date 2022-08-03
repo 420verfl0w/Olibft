@@ -6,7 +6,7 @@
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:14:47 by maldavid          #+#    #+#             */
-/*   Updated: 2022/07/26 23:17:46 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/01 01:23:25 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	main(int ac, char **av)
 {
+	test();
 	if (ac < 2)
 		return (1);
 	printf("%d\n", ft_isalpha(av[1][0]));
