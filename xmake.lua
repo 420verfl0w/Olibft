@@ -6,11 +6,6 @@
 --
 ----------------------------------------
 
-local function cpu_extensions_management()
-	--[[
-	]]
-end
-
 set_objectdir("build-int/$(os)_$(arch)")
 set_targetdir("build/$(os)_$(arch)")
 
@@ -72,6 +67,7 @@ target("all")
 		os.run("fasm ISA/check.asm")
 		local cpu_extensions = os.iorun("ISA/check")
 		os.rm("ISA/check")
+		--[[
 		if string.find(cpu_extensions, "avx2") then
 			target:add("defines", "AVX2")
 		end
@@ -87,6 +83,7 @@ target("all")
 		if string.find(cpu_extensions, "erms") then
 			target:add("defines", "ERMS")
 		end
+		--]]
 		print(string.format("\27[38;5;45m%s\27[0m", banner))
 	end)
 	set_default(true)
@@ -94,6 +91,7 @@ target("all")
 	set_basename("olibft")
 	set_prefixname("")
     add_files("src/sys/*.c", "src/syscalls/*.asm")
+    add_files("src/stdio/*.c", "src/stdio/*.asm")
     add_files("src/maths/*.asm")
     add_files("src/strings/*.asm", "src/utils/*.asm", "src/strings/**/*.asm")
 target_end()

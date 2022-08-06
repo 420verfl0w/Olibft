@@ -64,11 +64,10 @@ __memset_avx_no_vzeroupper:
 	ret
 
 .L001:
-	;mov rcx, qword [__x86_shared_cache_size_half]
 	cmp rdx, rcx
 	ja .L002
 	cmp rdx, 0x400
-	;ja 0x4458ef
+	ja .L002
 	vmovups zword [rdi], zmm2
 	vmovups zword [rdi + 0x40], zmm2
 	vmovups zword [rdi + 0x80], zmm2
@@ -87,25 +86,62 @@ __memset_avx_no_vzeroupper:
 	vmovups zword [rsi - 0x40], zmm2
 	ret
 
-.L002:
-	sub     rsi, 0x100 ; 256
-	vmovups zword [rax], zmm2
-	and     rdi, 0xffffffffffffffc0 ; arg1
-	add     rdi, 0x40  ; sym.__libc_tsd_CTYPE_TOLOWER ; arg1
-	jmp      .loop
+.__x86_shared_cached_size_half:
+	add byte [rax], al
+	or byte [rax], al
+	add byte [rax], al
+	add byte [rax], al
 
-.loop:
+.L002:
+	sub rsi, 0x100
+	vmovups zword [rax], zmm2
+	and rdi, 0xffffffffffffffc0
+	add rdi, 0x40
+	jmp .loop_L002
+
+.loop_L002:
 	vmovaps zword [rdi], zmm2
 	vmovaps zword [rdi + 0x40], zmm2
 	vmovaps zword [rdi + 0x80], zmm2
 	vmovaps zword [rdi + 0xc0], zmm2
-	add     rdi, 0x100 ; 256 ; arg1
-	cmp     rdi, rsi   ; arg1
-	jb      .loop
+	add rdi, 0x100
+	cmp rdi, rsi
+	jb .loop_L002
 	vmovups zword [rsi], zmm2
 	vmovups zword [rsi + 0x40], zmm2
 	vmovups zword [rsi + 0x80], zmm2
 	vmovups zword [rsi + 0xc0], zmm2
+	ret
+
+.L003:
+	and rdi, 0xffffffffffffff80
+	add rdi, 0x80
+	vmovups zword [rax], zmm2
+	vmovups zword [rax + 0x40], zmm2
+	sub rsi, 0x200
+	jmp .loop_L003
+
+.loop_L003:
+	vmovntdq zword [rdi], zmm2
+	vmovntdq zword [rdi + 0x40], zmm2
+	vmovntdq zword [rdi + 0x80], zmm2
+	vmovntdq zword [rdi + 0xc0], zmm2
+	vmovntdq zword [rdi + 0x100], zmm2
+	vmovntdq zword [rdi + 0x140], zmm2
+	vmovntdq zword [rdi + 0x180], zmm2
+	vmovntdq zword [rdi + 0x1c0], zmm2
+	add rdi, 0x200
+	cmp rdi, rsi
+	jb .loop_L003
+	sfence
+	vmovups zword [rsi], zmm2
+	vmovups zword [rsi + 0x40], zmm2
+	vmovups zword [rsi + 0x80], zmm2
+	vmovups zword [rsi + 0xc0], zmm2
+	vmovups zword [rsi + 0x100], zmm2
+	vmovups zword [rsi + 0x140], zmm2
+	vmovups zword [rsi + 0x180], zmm2
+	vmovups zword [rsi + 0x1c0], zmm2
 	ret
 
 .L0001:

@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/08/01 02:15:50 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/06 22:43:48 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@
 #   define FT_NULL ((void*)0)
 #  endif
 # endif
+
+# define WEAK_ALIAS(name, aliasname) _WEAK_ALIAS (name, aliasname)
+# define _WEAK_ALIAS(name, aliasname) extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)));
 
 # define FT_ERRNO		103
 
@@ -116,35 +119,24 @@
 //
 /////////////////////////////////
 
-typedef double			t_f64;
-typedef unsigned char	t_byte;
-typedef unsigned char	t_u8;
-typedef unsigned short	t_u16;
-typedef unsigned int	t_u32;
-typedef unsigned long	t_u64;
-typedef float			t_f32;
-typedef int				t_fd;
-typedef int				t_pid;
+typedef double				t_f64;
+typedef unsigned char		t_byte;
+typedef unsigned char		t_u8;
+typedef unsigned short		t_u16;
+typedef unsigned int		t_u32;
+typedef unsigned long		t_u64;
+typedef float				t_f32;
+typedef int					t_pid;
+typedef unsigned long		t_size;
+typedef struct	s_file		t_file;
+typedef enum	e_fflags	t_fflags;
+typedef enum	e_bool		t_bool;
 
 /////////////////////////////////
 //
 //			ENUM
 //
 /////////////////////////////////
-
-enum e_file_flags
-{
-	FILE_DUPFD,
-	FILE_GETFD,
-	FILE_SETFD,
-	FILE_GETFL,
-	FILE_SETFL,
-	FILE_GETOWN,
-	FILE_SETOWN,
-	FILE_GETLK,
-	FILE_SETLK,
-	FILE_SETLKW
-};
 
 enum e_s_perm_flags
 {
@@ -160,6 +152,19 @@ enum e_s_perm_flags
 	S_IROTH = (1 << 2),
 	S_IWOTH = (1 << 1),
 	S_IXOTH = (1 << 0)
+};
+
+enum __attribute__((__packed__)) e_bool
+{
+	FALSE	= 0,
+	TRUE	= 1
+};
+
+enum	e_fflags
+{
+	F_RD = (1 << 0),
+	F_WR = (1 << 1),
+	F_AP = (1 << 2),
 };
 
 //////////////////////////////////
@@ -189,6 +194,13 @@ struct	s_sockaddr_in
 	char				sin_zero[8];
 };
 
+struct	s_file
+{
+	int			fd;
+	t_fflags	flags;
+	t_size		pos;
+};
+
 //////////////////////////////////
 //
 //			UTILS
@@ -205,6 +217,7 @@ extern void			ft_swap(int *a, int *b);
 //////////////////////////////////
 
 extern float		ft_sqrt(float nbr);
+extern int			ft_abs(int nbr);
 
 //////////////////////////////////
 //
@@ -223,22 +236,9 @@ extern int			ft_isprint(int c);
 extern int			ft_isupper(int c);
 extern int			ft_iscntrl(int c);
 extern int			ft_isxdigit(int c);
-extern int			ft_putchar(int c);
 extern int			ft_tolower(int c);
 extern int			ft_toupper(int c);
-
-#include <stdio.h>
-#ifdef AVX2
-void	test()
-{
-	puts("avx2 found !");
-}
-#else
-void	test()
-{
-	puts("avx2 not found !");
-}
-#endif
+extern int			ft_nbrlen(long nbr);
 
 /////////////////////////////////
 //
@@ -263,6 +263,22 @@ extern int			ft_socket(int domain, int type, int protocol);
 
 /////////////////////////////////
 //
+//			  IO
+//
+/////////////////////////////////
+
+extern int			ft_putchar(char c);
+
+t_file				*ft_fopen(const char *path, t_fflags flag);
+int					ft_fwrite(t_file *file, char *msg, t_size len);
+int					ft_fputc(t_file *file, char f);
+t_size				ft_fgetpos(t_file *file);
+t_bool				ft_fsetpos(t_file *file, t_size pos);
+t_size				ft_fread(t_file *file, char *dest, t_size len);
+int					ft_fclose(t_file *file);
+
+/////////////////////////////////
+//
 //			ERRORS
 //
 /////////////////////////////////
@@ -272,10 +288,10 @@ extern const char		*g_errno_tab[FT_ERRNO];
 
 # ifdef __STDC_NO_ATOMICS__
 
-static int				g_ft_errno = 0;
+static int __attribute__((used))			g_ft_errno = 0;
 # else
 
-//static _Atomic int		g_ft_errno = 0;
+static _Atomic int __attribute__((used))	g_ft_errno = 0;
 # endif
 
 const char			*ft_strerrno(int e);

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_fclose.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 15:30:29 by maldavid          #+#    #+#             */
-/*   Updated: 2022/07/28 20:09:38 by stales           ###   ########.fr       */
+/*   Created: 2022/08/06 22:45:41 by maldavid          #+#    #+#             */
+/*   Updated: 2022/08/06 22:51:33 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include "libft.h"
 
-void __memset_sse2_unaligned(void* buf, char c, unsigned int size);
-
-int	main(void)
+int	ft_fclose(t_file *file)
 {
-	char	buf[33] = { 0 };
-	__memset_sse2_unaligned(buf, 'a', sizeof(buf));
-	puts(buf);
+	if (file == FT_NULL)
+		return (0);
+	if (ft_close(file->fd) == -1)
+	{
+		g_ft_errno = errno;
+		return (-1);
+	}
+	free(file);
+	file = FT_NULL;
 	return (0);
 }
