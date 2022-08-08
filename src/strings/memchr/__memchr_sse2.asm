@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Author 	: maldavid
-;; Date   	: 2022-07-27 23:01:15
-;; Filename	: __memset_avx2_unaligned
-;;
+;; 
+;; Author   : maldavid
+;; Date     : 2022-08-08 22:57:23
+;; Filename : __memchr_sse2
+;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 format ELF64

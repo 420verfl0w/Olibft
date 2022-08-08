@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 23:47:17 by stales            #+#    #+#             */
-/*   Updated: 2022/07/27 00:22:38 by stales           ###   ########.fr       */
+/*   Updated: 2022/08/08 23:35:42 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	main(int ac, char **av)
 {
+	test();
 	if (ac < 2)
 		return (1);
 	printf("%d\n", ft_putchar(*(int *)av[1]));

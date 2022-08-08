@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Author 	: maldavid
-;; Date   	: 2022-07-26 22:58:32
-;; Filename	: ft_isalpha
-;;
+;; 
+;; Author   : maldavid
+;; Date     : 2022-08-08 22:51:22
+;; Filename : ft_isalpha
+;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 format ELF64

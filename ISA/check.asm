@@ -11,15 +11,15 @@ format ELF64 executable 3
 entry _start
 
 segment readable writeable
-	avx2_str db "avx2", 0xa, 0
+	avx2_str db "AVX2/"
 	len_avx2 = $ - avx2_str
-	avx_str  db "avx",  0xa, 0
+	avx_str  db "AVX/"
 	len_avx = $ - avx_str
-	sse2_str db "sse2", 0xa, 0
+	sse2_str db "SSE2/"
 	len_sse2 = $ - sse2_str
-	sse_str  db "sse",  0xa, 0
+	sse_str  db "SSE/"
 	len_sse = $ - sse_str
-	erms_str db "erms", 0xa, 0
+	erms_str db "ERMS/"
 	len_erms = $ - erms_str
 
 segment readable executable
@@ -109,6 +109,11 @@ is_erms:
 	syscall
 
 _exit:
+	mov rax, 0x1
+	mov rdi, 0x1
+	mov rsi, 0
+	mov rdx, 1
+	syscall
 	mov rax, 0x3c
 	xor rdi, rdi
 	syscall
