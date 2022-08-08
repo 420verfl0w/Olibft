@@ -6,11 +6,11 @@
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:06:25 by maldavid          #+#    #+#             */
-/*   Updated: 2022/07/27 18:00:49 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:37:11 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_internal.h"
 
 const char	*g_errno_tab[103] = {
 	"ft_errno : Operation not permitted",

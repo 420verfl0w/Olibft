@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fclose.c                                        :+:      :+:    :+:   */
+/*   ft_fwrite.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 22:45:41 by maldavid          #+#    #+#             */
-/*   Updated: 2022/08/08 13:35:47 by maldavid         ###   ########.fr       */
+/*   Created: 2022/08/07 15:04:49 by maldavid          #+#    #+#             */
+/*   Updated: 2022/08/08 13:34:43 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <errno.h>
 #include "libft_internal.h"
+#include <errno.h>
 
-int	ft_fclose(t_file *file)
+t_size	ft_fwrite(t_file *file, char *msg, t_size len)
 {
-	if (file == FT_NULL)
+	t_size	size;
+
+	if (file == FT_NULL || !(file->flags & F_WR))
+	{
+		g_ft_errno = FT_EBADF;
 		return (0);
-	if (ft_close(file->fd) == -1)
+	}
+	size = ft_write(file->fd, msg, (unsigned int)len);
+	if (size == (t_size)-1)
 	{
 		g_ft_errno = errno;
-		return (-1);
+		return (0);
 	}
-	free(file);
-	file = FT_NULL;
-	return (0);
+	return (size);
 }

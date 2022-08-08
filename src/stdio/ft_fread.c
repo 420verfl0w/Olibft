@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fclose.c                                        :+:      :+:    :+:   */
+/*   ft_fread.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 22:45:41 by maldavid          #+#    #+#             */
-/*   Updated: 2022/08/08 13:35:47 by maldavid         ###   ########.fr       */
+/*   Created: 2022/08/07 17:27:32 by maldavid          #+#    #+#             */
+/*   Updated: 2022/08/08 13:35:23 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <errno.h>
 #include "libft_internal.h"
+#include <errno.h>
 
-int	ft_fclose(t_file *file)
+t_size	ft_fread(t_file *file, char *dest, t_size len)
 {
-	if (file == FT_NULL)
+	t_size	size;
+
+	if (file == FT_NULL || !(file->flags & F_RD))
+	{
+		g_ft_errno = FT_EBADF;
 		return (0);
-	if (ft_close(file->fd) == -1)
+	}
+	size = ft_read(file->fd, dest, len);
+	if (size == (t_size)-1)
 	{
 		g_ft_errno = errno;
-		return (-1);
+		return (0);
 	}
-	free(file);
-	file = FT_NULL;
-	return (0);
+	file->pos += size;
+	return (size);
 }

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fclose.c                                        :+:      :+:    :+:   */
+/*   ft_fopen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 22:45:41 by maldavid          #+#    #+#             */
-/*   Updated: 2022/08/08 13:35:47 by maldavid         ###   ########.fr       */
+/*   Created: 2022/08/07 18:15:21 by maldavid          #+#    #+#             */
+/*   Updated: 2022/08/08 15:02:27 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <errno.h>
-#include "libft_internal.h"
+#include "libft.h"
+#include <stdio.h>
 
-int	ft_fclose(t_file *file)
+int	main(void)
 {
-	if (file == FT_NULL)
-		return (0);
-	if (ft_close(file->fd) == -1)
-	{
-		g_ft_errno = errno;
-		return (-1);
-	}
-	free(file);
-	file = FT_NULL;
+	t_file	*file;
+	char	buf[255];
+
+	ft_fopen("test.txt", F_WR | F_RD);
+	ft_fread(file, buf, 255);
+	puts(buf);
+	ft_fclose(file);
 	return (0);
 }

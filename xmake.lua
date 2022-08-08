@@ -19,7 +19,7 @@ set_optimize("fastest")
 set_project("olibft")
 set_version("0.0.1")
 
-add_includedirs("includes")
+add_includedirs("includes", "src/includes")
 
 local banner = [[
 
@@ -90,10 +90,7 @@ target("all")
 	set_kind("static")
 	set_basename("olibft")
 	set_prefixname("")
-    add_files("src/sys/*.c", "src/syscalls/*.asm")
-    add_files("src/stdio/*.c", "src/stdio/*.asm")
-    add_files("src/maths/*.asm")
-    add_files("src/strings/*.asm", "src/utils/*.asm", "src/strings/**/*.asm")
+    add_files("src/**.c", "src/**.asm")
 target_end()
 
 target("clean")

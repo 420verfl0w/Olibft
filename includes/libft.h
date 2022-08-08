@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/08/06 22:43:48 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:30:36 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,9 @@
 #  elif __STDC_VERSION__ >= 199901L
 #   define FT_NULL 0
 #  else
-#   define FT_NULL ((void*)0)
+#   define FT_NULL ((void *)0)
 #  endif
 # endif
-
-# define WEAK_ALIAS(name, aliasname) _WEAK_ALIAS (name, aliasname)
-# define _WEAK_ALIAS(name, aliasname) extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)));
 
 # define FT_ERRNO		103
 
@@ -56,7 +53,8 @@
 # define FT_OPEN_RO 	  0
 # define FT_OPEN_WO 	  1
 # define FT_OPEN_RW 	  2
-# define FT_OPEN_CREAT   0x0200
+# define FT_OPEN_APPEND	 02000
+# define FT_OPEN_CREAT	 0x0200
 # define FT_OPEN_EXCL	 0x0800
 # define FT_OPEN_TRUNC   0x0400
 # define FT_OPEN_NOCTTY  0x8000
@@ -154,17 +152,11 @@ enum e_s_perm_flags
 	S_IXOTH = (1 << 0)
 };
 
-enum __attribute__((__packed__)) e_bool
-{
-	FALSE	= 0,
-	TRUE	= 1
-};
-
 enum	e_fflags
 {
 	F_RD = (1 << 0),
 	F_WR = (1 << 1),
-	F_AP = (1 << 2),
+	F_AP = (1 << 1) | (1 << 2),
 };
 
 //////////////////////////////////
@@ -192,13 +184,6 @@ struct	s_sockaddr_in
 	unsigned short		sin_port;
 	struct s_in_addr	sin_addr;
 	char				sin_zero[8];
-};
-
-struct	s_file
-{
-	int			fd;
-	t_fflags	flags;
-	t_size		pos;
 };
 
 //////////////////////////////////
@@ -270,8 +255,8 @@ extern int			ft_socket(int domain, int type, int protocol);
 extern int			ft_putchar(char c);
 
 t_file				*ft_fopen(const char *path, t_fflags flag);
-int					ft_fwrite(t_file *file, char *msg, t_size len);
-int					ft_fputc(t_file *file, char f);
+t_size				ft_fwrite(t_file *file, char *msg, t_size len);
+int					ft_fputc(int c, t_file *file);
 t_size				ft_fgetpos(t_file *file);
 t_bool				ft_fsetpos(t_file *file, t_size pos);
 t_size				ft_fread(t_file *file, char *dest, t_size len);
@@ -282,9 +267,6 @@ int					ft_fclose(t_file *file);
 //			ERRORS
 //
 /////////////////////////////////
-
-// src/sys/ft_errnotab.c
-extern const char		*g_errno_tab[FT_ERRNO];
 
 # ifdef __STDC_NO_ATOMICS__
 
