@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/08/09 00:28:34 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:10:42 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,10 +125,10 @@ typedef unsigned int		t_u32;
 typedef unsigned long		t_u64;
 typedef float				t_f32;
 typedef int					t_pid;
-typedef unsigned long		t_size;
-typedef struct	s_file		t_file;
-typedef enum	e_fflags	t_fflags;
-typedef enum	e_bool		t_bool;
+typedef unsigned int		t_size;
+typedef struct s_file		t_file;
+typedef enum e_fflags		t_fflags;
+typedef enum e_bool			t_bool;
 
 /////////////////////////////////
 //
@@ -224,7 +224,7 @@ extern int			ft_isxdigit(int c);
 extern int			ft_tolower(int c);
 extern int			ft_toupper(int c);
 extern int			ft_nbrlen(long nbr);
-void				ft_memset(void *str, int c, t_size n);
+extern void			*ft_memset(void *str, int c, t_size n);
 
 /////////////////////////////////
 //
@@ -271,10 +271,11 @@ int					ft_fclose(t_file *file);
 
 # ifdef __STDC_NO_ATOMICS__
 
-static int __attribute__((used))			g_ft_errno = 0;
+static int g_ft_errno		attr_used = 0;
 # else
 
-static _Atomic int __attribute__((used))	g_ft_errno = 0;
+static
+	_Atomic int g_ft_errno attr_used = 0;
 # endif
 
 const char			*ft_strerrno(int e);

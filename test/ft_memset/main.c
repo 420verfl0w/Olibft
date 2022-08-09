@@ -6,7 +6,7 @@
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:30:29 by maldavid          #+#    #+#             */
-/*   Updated: 2022/08/09 00:27:34 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/09 13:50:43 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int	main(void)
 {
-	char	buf[33] = { 0 };
+	char	buf[33];
+
 	ft_memset(buf, 'a', sizeof(buf));
 	puts(buf);
 	return (0);

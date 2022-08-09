@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dumb_memset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 13:49:01 by maldavid          #+#    #+#             */
-/*   Updated: 2022/08/09 13:49:03 by maldavid         ###   ########.fr       */
+/*   Created: 2022/08/09 14:49:21 by maldavid          #+#    #+#             */
+/*   Updated: 2022/08/09 14:51:18 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	*ft_dumb_memset(void *s, int c, t_size n)
 {
-	printf("%d\n", ft_nbrlen(69420));
-	return (0);
+	unsigned char	*tmp;
+
+	tmp = (unsigned char *)s;
+	while (n--)
+		*tmp++ = (unsigned char)c;
+	return (s);
 }
