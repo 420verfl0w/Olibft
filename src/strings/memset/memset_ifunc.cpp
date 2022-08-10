@@ -6,7 +6,7 @@
 /*   By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 12:14:00 by maldavid          #+#    #+#             */
-/*   Updated: 2022/08/10 21:45:44 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/11 00:21:55 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ extern "C"
 {
 	extern void* __memset_erms(void* str, int c, unsigned int n);
 	extern void* __memset_avx512_unaligned(void* str, int c, unsigned int n);
+	extern void* __memset_avx_no_vzeroupper(void* str, int c, unsigned int n);
 	extern void* __memset_avx2_unaligned(void* str, int c, unsigned int n);
 	extern void* __memset_sse2_unaligned(void* str, int c, unsigned int n);
 	extern void* __memset_sse2_unaligned_erms(void* str, int c, unsigned int n);
@@ -53,7 +54,11 @@ extern "C"
 			if((edx & 0x1000) != 0)
 				return __memset_erms;
 		if constexpr(has_avx512)
-			return __memset_avx512_unaligned;
+		{
+			if((edx & 0x800) == 0)
+				return __memset_avx512_unaligned;
+			return __memset_avx_no_vzeroupper;
+		}
 		if constexpr(has_avx2)
 			return __memset_avx2_unaligned;
 		if constexpr(has_sse2)

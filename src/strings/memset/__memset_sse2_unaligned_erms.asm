@@ -28,7 +28,9 @@ __memset_sse2_unaligned_erms:
 
 .L01:
 	cmp rdx, 0x800
-	ja dumb_setter
+	ja erms_setter
+
+_sse2_shared_setter:
 	cmp rdx, 0x40 
 	ja .L02
 	movdqu xword [rdi], xmm0

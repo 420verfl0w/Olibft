@@ -38,7 +38,7 @@ setbytes1:
 	mov word [rdi], cx
 	ret
 
-dumb_setter:
+erms_setter:
 	mov     rcx, rdx
 	movzx   eax, sil
 	mov     rdx, rdi

@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/08/10 21:02:04 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:53:16 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ extern int			ft_tolower(int c);
 extern int			ft_toupper(int c);
 extern int			ft_nbrlen(long nbr);
 extern void			*ft_memset(void *str, int c, t_size n);
+extern t_size		ft_strlen(char *str);
 
 /////////////////////////////////
 //

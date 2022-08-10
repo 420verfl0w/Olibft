@@ -6,7 +6,7 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-include 'memset_utils.asm'
+include '__memset_sse2_unaligned_erms.asm'
 
 public __memset_sse2_unaligned
 
@@ -21,7 +21,7 @@ __memset_sse2_unaligned:
 	cmp rdx, 0x10
 	jb smart_setter
 	cmp rdx, 0x20
-	ja dumb_setter
+	ja _sse2_shared_setter
 	movdqu  xword [rdi + rdx - 0x10], xmm0
 	movdqu  xword [rdi], xmm0
 	ret
