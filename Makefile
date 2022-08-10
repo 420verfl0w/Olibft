@@ -6,7 +6,7 @@
 #    By: maldavid <kbz_8.dev@akel-engine.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/09 23:12:16 by maldavid          #+#    #+#              #
-#    Updated: 2022/08/09 23:26:46 by maldavid         ###   ########.fr        #
+#    Updated: 2022/08/10 21:45:56 by maldavid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME		= release/openlibft.a
 CC			= gcc
 CXX			= g++
 FASM		= fasm
-CFLAGS		= -Wall -Wextra -Werror -Iincludes -Isrc/includes -O3 -fPIE 
+CFLAGS		= -Wall -Wextra -Werror -Iincludes -Isrc/includes -O3 -fPIE
 SRC_C	 	= $(wildcard src/**/*.c)
 SRC_C	 	+= $(wildcard src/**/**/*.c)
 SRC_CXX		= $(wildcard src/**/**/*.cpp)
@@ -36,7 +36,6 @@ NUM_SF		+= $(shell ls -l src/**/**/*.asm | wc -l)
 NUM_CXXF	= $(shell ls -l src/**/**/*.cpp | wc -l)
 ISA			= $(shell $(FASM) ISA/check.asm > /dev/null && ISA/check | rev | cut -c 2- | rev && rm ISA/check)
 CFLAGS		+= -D$(subst /, -D , $(ISA))
-CFLAGS		+= -Dattr_used="__attribute__((used))"
 cnt			= 1
 
 ##################################
@@ -73,7 +72,7 @@ define ascii_art
 ╚██████╔╝██║     ███████╗██║ ╚████║███████╗██║██████╔╝██║        ██║
  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝╚═════╝ ╚═╝        ╚═╝
                OpenLibft Created by 42 Angouleme
-                  [ Version : 0.0.1 (alpha) ] 
+                  [ Version : 0.0.1 (alpha) ]
 
 
 endef
@@ -103,7 +102,7 @@ $(NAME): $(OBJ_C) $(OBJ_S) $(OBJ_CXX)
 	@printf "\n"
 	@mkdir -p release
 	@ar rcs $(NAME) $(OBJ_C) $(OBJ_S) $(OBJ_CXX)
-	@printf "$(LBLUE)[$(PURPLE)+$(LBLUE)] Release has been builded release/openlibft.a !$(RESET)"
+	@printf "$(LBLUE)[$(PURPLE)+$(LBLUE)] Release has been builded release/openlibft.a !$(RESET)\n"
 
 clean:
 	@rm -rf $(OBJ_C) $(OBJ_S) $(OBJ_CXX)

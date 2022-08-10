@@ -6,7 +6,7 @@
 /*   By: stales <stales@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:48:48 by stales            #+#    #+#             */
-/*   Updated: 2022/08/09 14:10:42 by maldavid         ###   ########.fr       */
+/*   Updated: 2022/08/10 21:02:04 by maldavid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,11 +271,12 @@ int					ft_fclose(t_file *file);
 
 # ifdef __STDC_NO_ATOMICS__
 
-static int g_ft_errno		attr_used = 0;
+static
+	int g_ft_errno __attribute__((used)) = 0;
 # else
 
 static
-	_Atomic int g_ft_errno attr_used = 0;
+	_Atomic int g_ft_errno __attribute__((used)) = 0;
 # endif
 
 const char			*ft_strerrno(int e);
