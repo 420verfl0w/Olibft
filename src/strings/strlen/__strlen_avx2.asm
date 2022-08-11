@@ -15,20 +15,20 @@ section '.text' executable
 __strlen_avx2:
 	mov ecx, edi
 	mov rdx, rdi
-	vpxor xmm0, xmm0, xmm0
-	and ecx, 0x3f
-	cmp ecx, 0x20
-	ja .L01
-	vpcmpeqb ymm1, ymm0, yword [rdi]
+	vpxor xmm0, xmm0, xmm0	; sets xmm0 to 0
+	and ecx, 0x3f	; clear high bits from ecx. Only keeping bits relevant to page cross check
+	cmp ecx, 0x20	; check if we may cross page boundary with one vector load
+	ja .cross_page_boundary
+	vpcmpeqb ymm1, ymm0, yword [rdi]	; check the first vec size (32) bytes
 	vpmovmskb eax, ymm1
-	test eax, eax
+	test eax, eax	; If empty continue to .L02. Otherwise return bit position of first match
 	jne .L02
 	add rdi, 0x20
 	and ecx, 0x1f
 	and rdi, 0xffffffffffffffe0
 	jmp .L03
 
-.L01:
+.cross_page_boundary:
 	and ecx, 0x1f
 	and rdi, 0xffffffffffffffe0
 	vpcmpeqb ymm1, ymm0, yword [rdi]
